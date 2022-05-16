@@ -1,0 +1,24 @@
+{
+    "data-sources": [
+        {
+            "name": "toilets",
+            "url": "https://opendata-ajuntament.barcelona.cat/data/en/dataset/lavabos-publics",
+            "file": "raw-data/toilets.csv"
+        },
+        {
+            "name": "citizen participation spaces",
+            "url": "https://opendata-ajuntament.barcelona.cat/data/en/dataset/lavabos-publics",
+            "file": "raw-data/citizen-participation-spaces.csv"
+        },
+        {
+            "name": "libraries, museums and study rooms",
+            "url": "https://opendata-ajuntament.barcelona.cat/data/en/dataset/lavabos-publics",
+            "file": "raw-data/libraries-museums-study_rooms.csv"
+        }
+    ],
+
+    "required-fields": [
+        "geo_epgs_4326_x",
+        "geo_epgs_4326_y"
+    ]
+}
