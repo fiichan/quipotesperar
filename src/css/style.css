@@ -13,17 +13,28 @@ body,
     background-color: aquamarine;
 }
 
+/*Filters*/
 #filters-sidebar {
     padding-left: 20px;
 }
 
+/*Map*/
+#map-test {
+    background-image: url("../data/images/map.png");
+    min-height: 100vh;
+}
 #map {
-    /*background-image: url("../data/images/map.png");*/
     min-height: 100vh;
 }
 #filter-bar {
     padding-bottom: 15px;
 }
+
+/*Toilet*/
 #toilet-sidebar {
     min-height: 50vh;
+    padding-top: 15px;
+}
+#toilet-sidebar div {
+    margin-bottom: 20px;
 }

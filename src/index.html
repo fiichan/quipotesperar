@@ -48,11 +48,11 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-light">
-                            Search
-                        </a>
                         <a class="button is-primary">
                             <strong>Add Toilet</strong>
+                        </a>
+                        <a class="button is-text">
+                            EN
                         </a>
                     </div>
                 </div>
@@ -148,49 +148,82 @@
                 </aside>
             </div>
 
+            <!--Map Container-->
             <div id="map-container" class="column">
-                <!--Filter Bar-->
-                <!--div id="filter-bar">
-                    <button class="button is-primary is-rounded is-small">
-                        <span class="icon">
-                            <i class="fa-regular fa-clock"></i>
-                        </span>
-                        <span>Open Now</span>
-                    </button>
-                    <button class="button is-outlined is-rounded is-small">
-                        <span class="icon">
-                            <i class="fa-solid fa-euro-sign"></i>
-                        </span>
-                        <span>Free</span>
-                    </button>
-                    <button class="button is-outlined is-rounded is-small">
-                        <span class="icon">
-                            <i class="fa-solid fa-wheelchair-move"></i>
-                        </span>
-                        <span>Accessible</span>
-                    </button>
-                </div-->
-
-                <!--Map-->
                 <div id="map">
 
                 </div>
+            </div>
 
-                <!--Open Toilet-->
-                <div class="column is-narrow">
-                    <aside id="toilet-sidebar">
-                        AAAAA
-                    </aside>
-                </div>
+            <!--Toilet Pane-->
+            <div class="column is-narrow">
+                <aside id="toilet-sidebar">
+                    <!--General-->
+                    <div>
+                        <h2 class="is-size-3">Toilet Name</h2>
+                        <p>Place Type (Public, Library...)</p>
+                        <a href="https://goo.gl/maps/iXMS9Jdt5kv4oZiz6"
+                            target="_blank">
+                            <p>
+                                <span class="icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </span>
+                                <span>Carrer dels Angels, 20</span>
+                            </p>
+                        </a>
+                        <span class="tag is-success">
+                            <span class="icon">
+                                <i class="fa-regular fa-clock"></i>
+                            </span>
+                            <span>Open Now</span>
+                        </span>
+                    </div>
+
+                    <!--Main Tags-->
+                    <div id="toilet-tags">
+                        <span class="tag is-light">
+                            <span class="icon">
+                                <i class="fa-solid fa-euro-sign"></i>
+                            </span>
+                            <span>Free</span>
+                        </span>
+                        <span class="tag is-light">
+                            <span class="icon">
+                                <i class="fa-solid fa-wheelchair-move"></i>
+                            </span>
+                            <span>Accessible</span>
+                        </span>
+                        <span class="tag is-light">
+                            <span class="icon">
+                                <i class="fa-solid fa-venus-mars"></i>
+                            </span>
+                            <span>Gender Neutral</span>
+                        </span>
+                    </div>
+
+                    <!--Notes-->
+                    <div>
+                        <h3 class="is-size-5">Notes</h3>
+                        <p>Ground and floor 2. Baby-change on ground floor only.</p>
+                    </div>
+
+                    <!--Update-->
+                    <div>
+                        <h3 class="is-size-5">Is this information correct?</h3>
+                        <p>Yes/No THINK ABOUT THIS INTERACTION</p>
+                    </div>
+
+                </aside>
             </div>
-        </section>
-        <footer class="footer">
-            <div class="container">
-                <div class="content has-text-centered">
-                    <p>Hello</p>
-                </div>
+    </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>Hello</p>
             </div>
-        </footer>
+        </div>
+    </footer>
     </div>
 
     <!-- custom js should be last line of the body -->
