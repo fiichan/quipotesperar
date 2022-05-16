@@ -1,72 +1,107 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>#QUIPOTESPERAR</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!-- css framework -->
-        <link type="text/css" rel="stylesheet" href="libraries/bulma/css/bulma.min.css" media="screen,projection" />
+    <title>#QUIPOTESPERAR</title>
 
-        <!-- map rendering related sources -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-            integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-            crossorigin="" />
-        <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-            integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-            crossorigin=""></script>
+    <!-- css framework -->
+    <link type="text/css" rel="stylesheet"
+        href="libraries/bulma/css/bulma.min.css" media="screen,projection" />
 
-        <!--Fonts-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- map rendering related sources -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
 
-        <!-- custom css -->
-        <link type="text/css" rel="stylesheet" href="css/style.css" media="screen,projection" />
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f22bcf414c.js"
+        crossorigin="anonymous"></script>
 
-    </head>
+    <!-- custom css -->
+    <link type="text/css" rel="stylesheet" href="css/style.css"
+        media="screen,projection" />
 
-    <body>
-        <div id="app">
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    <a class="navbar-item">
-                        #QUIPOTESPERAR
-                    </a>
-                </div>
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-light">
-                                Search
-                            </a>
-                            <a class="button is-primary">
-                                <strong>Add Toilet</strong>
-                            </a>
-                        </div>
+</head>
+
+<body>
+    <div id="app">
+        <!--Navbar-->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    #QUIPOTESPERAR
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-light">
+                            Search
+                        </a>
+                        <a class="button is-primary">
+                            <strong>Add Toilet</strong>
+                        </a>
                     </div>
                 </div>
-            </nav>
-            <section class="main-content columns container is-fullheight">
-                <div class="column is-2">
-                    aaaa
-                </div>
+            </div>
+        </nav>
 
-                <div class="column is-10">
-                    aaaaa
-                </div>
-            </section>
-            <footer class="footer">
-                <div class="container">
-                    <div class="content has-text-centered">
-                        <p>Hello</p>
-                    </div>
-                </div>
-            </footer>
-        </div>
+        <section class="main-content columns container">
+            <!--Sidebar-->
+            <div class="column is-narrow">
+                <aside id="filters-sidebar" class="menu">
+                    <p class="menu-label">Filters</p>
+                </aside>
+            </div>
 
-        <!-- custom js should be last line of the body -->
-        <script src="js/index.js"></script>
-    </body>
+            <div id="map-container" class="column">
+                <div id="filter-bar">
+                    <button class="button is-primary is-rounded is-small">
+                        <span class="icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </span>
+                        <span>Open Now</span>
+                    </button>
+                    <button class="button is-outlined is-rounded is-small">
+                        <span class="icon">
+                            <i class="fa-solid fa-euro-sign"></i>
+                        </span>
+                        <span>Free</span>
+                    </button>
+                    <button class="button is-outlined is-rounded is-small">
+                        <span class="icon">
+                            <i class="fa-solid fa-wheelchair-move"></i>
+                        </span>
+                        <span>Accessible</span>
+                    </button>
+                </div>
+                <div id="map-test">
+
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <p>Hello</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- custom js should be last line of the body -->
+    <script src="js/index.js"></script>
+</body>
+
 </html>

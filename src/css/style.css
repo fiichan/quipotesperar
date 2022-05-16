@@ -5,6 +5,23 @@ body,
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#app {
+/*#app {
     min-height: 100%;
+}*/
+.navbar {
+    margin-bottom: 15px;
+    background-color: aquamarine;
+}
+
+#filters-sidebar {
+    padding-left: 20px;
+    background-color: aqua;
+}
+
+#map-test {
+    background-image: url("../data/images/map.png");
+    min-height: 100vh;
+}
+#filter-bar {
+    padding-bottom: 15px;
 }
