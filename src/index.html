@@ -10,8 +10,10 @@
     <title>#QUIPOTESPERAR</title>
 
     <!-- css framework -->
-    <link type="text/css" rel="stylesheet"
-        href="libraries/bulma/css/bulma.min.css" media="screen,projection" />
+    <!--link type="text/css" rel="stylesheet"
+        href="libraries/bulma/css/bulma.min.css" media="screen,projection" /-->
+    <link type="text/css" rel="stylesheet" href="libraries/bulma/bulma.css"
+        media="screen,projection" />
 
     <!-- map rendering related sources -->
     <link rel="stylesheet"
@@ -61,12 +63,94 @@
             <!--Sidebar-->
             <div class="column is-narrow">
                 <aside id="filters-sidebar" class="menu">
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input" type="text"
+                                placeholder="Search">
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                        </p>
+                    </div>
                     <p class="menu-label">Filters</p>
+                    <ul class="menu-list">
+                        <li><a>
+                                <input id="filter-opennow" type="checkbox"
+                                    name="filter-opennow"
+                                    class="switch is-rounded" checked="checked">
+                                <label for="filter-opennow">
+                                    <!--span class="icon">
+                                    <i class="fa-regular fa-clock"></i>
+                                </span-->
+                                    <span>Open Now</span>
+                                </label>
+                                <!--button class="button is-outlined is-rounded">
+                                <span class="icon">
+                                    <i class="fa-regular fa-clock"></i>
+                                </span>
+                                <span>Open Now</span>
+                            </button-->
+                            </a>
+                        </li>
+                        <li><a>
+                                <input id="filter-free" type="checkbox"
+                                    name="filter-free" class="switch is-rounded"
+                                    checked="checked">
+                                <label for="filter-free">
+                                    <span>Free</span>
+                                </label>
+                            </a>
+                        </li>
+                        <li><a>
+                                <input id="filter-accessible" type="checkbox"
+                                    name="filter-accessible"
+                                    class="switch is-rounded" checked="checked">
+                                <label for="filter-accessible">
+                                    <span>Accessible</span>
+                                </label>
+                            </a>
+                        </li>
+                        <li><a>
+                                <input id="filter-gender" type="checkbox"
+                                    name="filter-gender"
+                                    class="switch is-rounded" checked="checked">
+                                <label for="filter-gender">
+                                    <span>Gender Neutral</span>
+                                </label>
+                            </a>
+                        </li>
+                        <!--li><a>
+                                <button class="button is-outlined is-rounded">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-euro-sign"></i>
+                                    </span>
+                                    <span>Free</span>
+                                </button></a>
+                        </li>
+                        <li><a>
+                                <button class="button is-outlined is-rounded">
+                                    <span class="icon">
+                                        <i
+                                            class="fa-solid fa-wheelchair-move"></i>
+                                    </span>
+                                    <span>Accessible</span>
+                                </button></a>
+                        </li>
+                        <li><a>
+                                <button class="button is-outlined is-rounded">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-venus-mars"></i>
+                                    </span>
+                                    <span>Gender Neutral</span>
+                                </button></a>
+                        </li-->
+                    </ul>
                 </aside>
             </div>
 
             <div id="map-container" class="column">
-                <div id="filter-bar">
+                <!--Filter Bar-->
+                <!--div id="filter-bar">
                     <button class="button is-primary is-rounded is-small">
                         <span class="icon">
                             <i class="fa-regular fa-clock"></i>
@@ -85,9 +169,18 @@
                         </span>
                         <span>Accessible</span>
                     </button>
-                </div>
-                <div id="map-test">
+                </div-->
 
+                <!--Map-->
+                <div id="map">
+
+                </div>
+
+                <!--Open Toilet-->
+                <div class="column is-narrow">
+                    <aside id="toilet-sidebar">
+                        AAAAA
+                    </aside>
                 </div>
             </div>
         </section>
@@ -102,6 +195,7 @@
 
     <!-- custom js should be last line of the body -->
     <script src="js/index.js"></script>
+    <script src="js/interaction.js"></script>
 </body>
 
 </html>
