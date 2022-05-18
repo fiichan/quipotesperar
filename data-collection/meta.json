@@ -18,7 +18,29 @@
     ],
 
     "required-fields": [
-        "geo_epgs_4326_x",
-        "geo_epgs_4326_y"
+        {
+            "csv_field_name": "geo_epgs_4326_x",
+            "db_field_name": "lat"
+        }, 
+        {
+            "csv_field_name": "geo_epgs_4326_y",
+            "db_field_name": "lon"
+        },
+        {
+            "csv_field_name": "secondary_filters_name",
+            "db_field_name": "category"
+        },
+        {
+            "csv_field_name": "addresses_road_name",
+            "db_field_name": "address_street"
+        },
+        {
+            "csv_field_name": "addresses_start_street_number",
+            "db_field_name": "address_street_number"
+        },
+        {
+            "csv_field_name": "name",
+            "db_field_name": "name"
+        }
     ]
 }
