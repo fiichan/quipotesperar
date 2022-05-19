@@ -1,6 +1,10 @@
 <?php
     include 'connect_db.php';
 
-    $stmt = $pdo->query('SELECT * FROM toilets');
-    print_r($stmt->fetch());
+    $stmt = $pdo->prepare('SELECT * FROM toilets');
+    $stmt->execute();
+    $res = $stmt->fetchAll();
+
+    header('Content-type: application/json');
+    echo json_encode($res);
 ?>
