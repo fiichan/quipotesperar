@@ -23,7 +23,6 @@ const basemap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyag
 
 get_toilets((data) => {
     markers = generate_markers(data);
-    console.log(markers)
     filter_toilets(markers, {
         category: "Natació"
     });
@@ -32,7 +31,6 @@ get_toilets((data) => {
 // on marker click
 function on_marker_click(e) {
     const index = get_marker_index(e);
-    console.log()
 }
 
 function generate_markers(data) {
@@ -60,16 +58,12 @@ function generate_map_marker(lat, lon, index) {
 // add toilet markers to map
 function filter_toilets(toilets, filter) {
 
-    let c = 0;
     for (let i = 0; i < toilets.length; i++) {
         const t = toilets[i];
         let skip = false;
         
         for (const [key, value] of Object.entries(filter)) {
-        
-            console.log(t[key] + " == " + value, t[key] == value ? true : false)
             const make_visible = t[key] == value ? true : false;
-            
             
             if(!make_visible) {
                 toggle_marker(t, false);
@@ -78,10 +72,8 @@ function filter_toilets(toilets, filter) {
         }
 
         if(skip) continue;
-        c++;
         toggle_marker(t, true);
     }
-    console.log(c);
 }
 
 function toggle_marker(toilet, make_visible) {
