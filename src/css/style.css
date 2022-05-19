@@ -9,13 +9,16 @@ body,
     min-height: 100%;
 }*/
 .navbar {
-    margin-bottom: 15px;
     background-color: aquamarine;
 }
 
 /*Filters*/
 #filters-sidebar {
+    padding-top: 15px;
     padding-left: 20px;
+}
+.menu-list {
+    margin-bottom: 15px;
 }
 
 /*Map*/
@@ -37,4 +40,14 @@ body,
 }
 #toilet-sidebar div {
     margin-bottom: 20px;
+}
+span.close {
+    float: right;
+}
+span.close i:hover {
+    color:hsl(348, 100%, 61%);	
+    cursor: pointer;
+}
+#toilet-opennow {
+    margin-top: 15px;
 }

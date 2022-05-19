@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>#QUIPOTESPERAR</title>
+
+    <!-- css framework -->
+    <!--link type="text/css" rel="stylesheet"
+        href="libraries/bulma/css/bulma.min.css" media="screen,projection" /-->
+    <link type="text/css" rel="stylesheet" href="libraries/bulma/bulma.css"
+        media="screen,projection" />
+
+    <!-- map rendering related sources -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+        integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+        crossorigin=""></script>
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f22bcf414c.js"
+        crossorigin="anonymous"></script>
+
+    <!-- custom css -->
+    <link type="text/css" rel="stylesheet" href="css/style.css"
+        media="screen,projection" />
+
+</head>
+
+<body>
+    <div id="app">
+        <!--Navbar-->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    #QUIPOTESPERAR Toilet Map
+                </a>
+            </div>
+            <div class="navbar-start">
+                <a class="navbar-item">About</a>
+                <a class="navbar-item">Contact</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary">
+                            <strong>Add Toilet</strong>
+                        </a>
+                        <a class="button is-text">
+                            EN
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="main-content columns container">
+            <div class="column is-8 is-offset-2">
+                <h1 class="is-size-2">Add toilet</h1>
+                <p>Instructions go here</p>
+                <br>
+
+                <form class="columns">
+                    <!--div class="columns column is-12">
+                        <div class="field column is-8">
+                            <label class="label">Toilet Name</label>
+                            <div class="control">
+                                <input class="input" type="text"
+                                    placeholder="Text input">
+                            </div>
+                        </div>
+                        <div class="field column is-3">
+                            <label class="label">Type</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select>
+                                        <option>Select dropdown</option>
+                                        <option>With options</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div-->
+                    <div class="column is-12">
+                        <table class="table is-fullwidth">
+                            <tr>
+                                <th>Who can use these toilets?</th>
+                                <td>Yes</td>
+                                <td>No</td>
+                                <td>I don't know</td>
+                            </tr>
+                            <tr>
+                                <th>Women?</th>
+                                <td><input class="is-checkradio" id="women-yes" type="radio" name="women" checked="checked"></td>
+                                <td><input class="is-checkradio" id="women-no" type="radio" name="women"></td>
+                                <td><input class="is-checkradio" id="women-idk" type="radio" name="women"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+        <!--footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>Hello</p>
+            </div>
+        </div>
+    </footer-->
+    </div>
+
+    <!-- custom js should be last line of the body -->
+    <script src="js/index.js"></script>
+    <script src="js/interaction.js"></script>
+</body>
+
+</html>

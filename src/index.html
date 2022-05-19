@@ -41,14 +41,18 @@
         <!--Navbar-->
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item">
-                    #QUIPOTESPERAR
+                <a class="navbar-item" href="index.html">
+                    #QUIPOTESPERAR Toilet Map
                 </a>
+            </div>
+            <div class="navbar-start">
+                <a class="navbar-item">About</a>
+                <a class="navbar-item">Contact</a>
             </div>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-primary">
+                        <a class="button is-primary" href="addtoilet.html">
                             <strong>Add Toilet</strong>
                         </a>
                         <a class="button is-text">
@@ -60,7 +64,7 @@
         </nav>
 
         <section class="main-content columns container">
-            <!--Sidebar-->
+            <!--Filter Sidebar-->
             <div class="column is-narrow">
                 <aside id="filters-sidebar" class="menu">
                     <div class="field">
@@ -73,83 +77,152 @@
                         </p>
                     </div>
                     <p class="menu-label">Filters</p>
+                    <!--Main Filters-->
                     <ul class="menu-list">
-                        <li><a>
-                                <input id="filter-opennow" type="checkbox"
-                                    name="filter-opennow"
-                                    class="switch is-rounded" checked="checked">
-                                <label for="filter-opennow">
-                                    <!--span class="icon">
-                                    <i class="fa-regular fa-clock"></i>
-                                </span-->
-                                    <span>Open Now</span>
-                                </label>
-                                <!--button class="button is-outlined is-rounded">
-                                <span class="icon">
-                                    <i class="fa-regular fa-clock"></i>
-                                </span>
-                                <span>Open Now</span>
-                            </button-->
-                            </a>
+                        <li>
+                            <input id="filter-opennow" type="checkbox"
+                                name="filter-opennow" class="switch is-rounded"
+                                checked="checked">
+                            <label for="filter-opennow">
+                                <span>Open now</span>
+                            </label>
                         </li>
-                        <li><a>
-                                <input id="filter-free" type="checkbox"
-                                    name="filter-free" class="switch is-rounded"
-                                    checked="checked">
-                                <label for="filter-free">
-                                    <span>Free</span>
-                                </label>
-                            </a>
+                        <li>
+                            <input id="filter-free" type="checkbox"
+                                name="filter-free" class="switch is-rounded"
+                                checked="checked">
+                            <label for="filter-free">
+                                <span>Free</span>
+                            </label>
                         </li>
-                        <li><a>
-                                <input id="filter-accessible" type="checkbox"
-                                    name="filter-accessible"
-                                    class="switch is-rounded" checked="checked">
-                                <label for="filter-accessible">
-                                    <span>Accessible</span>
-                                </label>
-                            </a>
+                        <li>
+                            <input id="filter-handicap" type="checkbox"
+                                name="filter-handicap" class="switch is-rounded"
+                                checked="checked">
+                            <label for="filter-handicap">
+                                <span>Handicapped toilet</span>
+                            </label>
                         </li>
-                        <li><a>
-                                <input id="filter-gender" type="checkbox"
-                                    name="filter-gender"
-                                    class="switch is-rounded" checked="checked">
-                                <label for="filter-gender">
-                                    <span>Gender Neutral</span>
-                                </label>
-                            </a>
+                        <li>
+                            <input id="filter-unisex" type="checkbox"
+                                name="filter-unisex" class="switch is-rounded"
+                                checked="checked">
+                            <label for="filter-unisex">
+                                <span>Unisex</span>
+                            </label>
                         </li>
-                        <!--li><a>
-                                <button class="button is-outlined is-rounded">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-euro-sign"></i>
-                                    </span>
-                                    <span>Free</span>
-                                </button></a>
+                    </ul>
+                    <!--Gender-->
+                    <ul class="menu-list">
+                        <li>
+                            <a class="menu-label">Gender</a>
+                            <ul>
+                                <li><input id="filter-male" type="checkbox"
+                                        name="filter-male"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-male">
+                                        <span>Male</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-female" type="checkbox"
+                                        name="filter-female"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-female">
+                                        <span>Female</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </li>
-                        <li><a>
-                                <button class="button is-outlined is-rounded">
-                                    <span class="icon">
-                                        <i
-                                            class="fa-solid fa-wheelchair-move"></i>
-                                    </span>
-                                    <span>Accessible</span>
-                                </button></a>
+                    </ul>
+                    <!--Access-->
+                    <ul class="menu-list">
+                        <li>
+                            <a class="menu-label">Access</a>
+                            <ul>
+                                <li><input id="filter-groundlv" type="checkbox"
+                                        name="filter-groundlv"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-groundlv">
+                                        <span>At ground level</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-stairs" type="checkbox"
+                                        name="filter-stairs"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-stairs">
+                                        <span>Stairs</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </li>
-                        <li><a>
-                                <button class="button is-outlined is-rounded">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-venus-mars"></i>
-                                    </span>
-                                    <span>Gender Neutral</span>
-                                </button></a>
-                        </li-->
+                    </ul>
+                    <!--Family Friendly-->
+                    <ul class="menu-list">
+                        <li>
+                            <a class="menu-label">Family Friendly</a>
+                            <ul>
+                                <li><input id="filter-handdryer" type="checkbox"
+                                        name="filter-handdryer"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-handdryer">
+                                        <span>Hand dryer</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-groundlv" type="checkbox"
+                                        name="filter-groundlv"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-groundlv">
+                                        <span>At ground level</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-sanitarybin"
+                                        type="checkbox"
+                                        name="filter-sanitarybin"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-sanitarybin">
+                                        <span>Sanitary bin</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!--Hand Wash Area-->
+                    <ul class="menu-list">
+                        <li>
+                            <a class="menu-label">Hand Wash Area</a>
+                            <ul>
+                                <li><input id="filter-handdryer" type="checkbox"
+                                        name="filter-handdryer"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-handdryer">
+                                        <span>Hand dryer</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-soapdispenser"
+                                        type="checkbox"
+                                        name="filter-soapdispenser"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-soapdispenser">
+                                        <span>Soap dispenser</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </aside>
             </div>
 
             <!--Map Container-->
-            <div id="map-container" class="column">
+            <div id="map-container" class="column is-9">
                 <div id="map">
 
                 </div>
@@ -160,6 +233,9 @@
                 <aside id="toilet-sidebar">
                     <!--General-->
                     <div>
+                        <span class="close icon has-text-grey">
+                            <i class="fa-solid fa-x"></i>
+                        </span>
                         <h2 class="is-size-3">Toilet Name</h2>
                         <p>Place Type (Public, Library...)</p>
                         <a href="https://goo.gl/maps/iXMS9Jdt5kv4oZiz6"
@@ -171,40 +247,130 @@
                                 <span>Carrer dels Angels, 20</span>
                             </p>
                         </a>
-                        <span class="tag is-success">
+                        <span id="toilet-opennow" class="tag is-success">
                             <span class="icon">
                                 <i class="fa-regular fa-clock"></i>
                             </span>
                             <span>Open Now</span>
                         </span>
                     </div>
-
+                    <hr>
                     <!--Main Tags-->
-                    <div id="toilet-tags">
+                    <div class="toilet-tags">
                         <span class="tag is-light">
                             <span class="icon">
-                                <i class="fa-solid fa-euro-sign"></i>
+                                <i
+                                    class="fa-brands fa-creative-commons-nc-eu"></i>
                             </span>
                             <span>Free</span>
                         </span>
                         <span class="tag is-light">
                             <span class="icon">
+                                <i class="fa-solid fa-euro-sign"></i>
+                            </span>
+                            <span>1.00 Fee</span>
+                        </span>
+                        <span class="tag is-light is-info">
+                            <span class="icon">
                                 <i class="fa-solid fa-wheelchair-move"></i>
                             </span>
-                            <span>Accessible</span>
-                        </span>
-                        <span class="tag is-light">
-                            <span class="icon">
-                                <i class="fa-solid fa-venus-mars"></i>
-                            </span>
-                            <span>Gender Neutral</span>
+                            <span>Handicapped toilet</span>
                         </span>
                     </div>
 
+                    <!--Gender Tags-->
+                    <div class="toilet-tags">
+                        <h4 class="is-size-6"><strong>Gender</strong></h4>
+                        <span class="tag is-light is-success">
+                            <span class="icon">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span>Male</span>
+                        </span>
+                        <span class="tag is-light is-success">
+                            <span class="icon">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span>Female</span>
+                        </span>
+                        <span class="tag is-light is-danger">
+                            <span class="icon">
+                                <i class="fa-solid fa-x"></i>
+                            </span>
+                            <span>Unisex</span>
+                        </span>
+                    </div>
+
+                    <!--Hours-->
+                    <div>
+                        <h4 class="is-size-6"><strong>Opening Hours</strong>
+                        </h4>
+                        <table class="table is-fullwidth">
+                            <tr>
+                                <td>
+                                    Monday
+                                </td>
+                                <td>
+                                    9:00 - 20:00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tuesday
+                                </td>
+                                <td>
+                                    9:00 - 20:00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Wednesday
+                                </td>
+                                <td>
+                                    9:00 - 20:00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Thursday
+                                </td>
+                                <td>
+                                    9:00 - 20:00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Friday
+                                </td>
+                                <td>
+                                    9:00 - 20:00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Saturday
+                                </td>
+                                <td>
+                                    24 Hours
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Sunday
+                                </td>
+                                <td>
+                                    Closed
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <hr>
                     <!--Notes-->
                     <div>
                         <h3 class="is-size-5">Notes</h3>
-                        <p>Ground and floor 2. Baby-change on ground floor only.</p>
+                        <p>Ground and floor 2. Baby-change on ground floor only.
+                        </p>
                     </div>
 
                     <!--Update-->
@@ -217,13 +383,13 @@
             </div>
     </div>
     </section>
-    <footer class="footer">
+    <!--footer class="footer">
         <div class="container">
             <div class="content has-text-centered">
                 <p>Hello</p>
             </div>
         </div>
-    </footer>
+    </footer-->
     </div>
 
     <!-- custom js should be last line of the body -->
