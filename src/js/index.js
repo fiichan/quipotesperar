@@ -3,66 +3,104 @@ const toilet_icon = L.icon({
     iconUrl: 'leaf-green.png',
     shadowUrl: 'leaf-shadow.png',
 
-    iconSize:     [38, 95], // size of the icon
-    shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    iconSize: [38, 95], // size of the icon
+    shadowSize: [50, 64], // size of the shadow
+    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
     shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+let markers = null;
 
 
 // create map instance and add base layer from carto
-const map = L.map('map').setView([51.505, -0.09], 13);
+const map = L.map('map').setView([41.389596925956106, 2.1655470275217112], 13);
 const basemap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-	subdomains: 'abcd',
-	maxZoom: 20
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20
 }).addTo(map);
 
 
+get_toilets((data) => {
+    markers = generate_markers(data);
+    console.log(markers)
+    filter_toilets(markers, {
+        category: "Natació"
+    });
+});
+
 // on marker click
 function on_marker_click(e) {
-    const index = get_marker_id(e);
+    const index = get_marker_index(e);
+    console.log()
+}
+
+function generate_markers(data) {
+    const toilets = [];
+    for (let i = 0; i < data.length; i++) {
+        const di = data[i];
+        toilets.push({
+            ...di,
+            visible: false,
+            index: i,
+            marker: generate_map_marker(di.lat, di.lon, i)
+        });
+    }
+    return toilets;
+}
+
+function generate_map_marker(lat, lon, index) {
+    const m = L.marker([lat, lon], {
+        index: index
+    }).on("click", on_marker_click);
+
+    return m;
 }
 
 // add toilet markers to map
-function map_add_toilets(toilets) {
-    for(let i = 0; i < toilets.length; i++) {
+function filter_toilets(toilets, filter) {
+
+    let c = 0;
+    for (let i = 0; i < toilets.length; i++) {
         const t = toilets[i];
-        const m = L.marker([t.lat, t.lon], {
-            id: i
-        });
-        m.on("click", on_marker_click);
-        m.addTo(map);
+        let skip = false;
+        
+        for (const [key, value] of Object.entries(filter)) {
+        
+            console.log(t[key] + " == " + value, t[key] == value ? true : false)
+            const make_visible = t[key] == value ? true : false;
+            
+            
+            if(!make_visible) {
+                toggle_marker(t, false);
+                skip = true;
+            }
+        }
+
+        if(skip) continue;
+        c++;
+        toggle_marker(t, true);
+    }
+    console.log(c);
+}
+
+function toggle_marker(toilet, make_visible) {
+    if(toilet.visible && make_visible) {
+        return;
+    } else if(toilet.visible && make_visible == false) {
+        toilet.visible = false;
+        map.removeLayer(toilet.marker);
+    } else if(toilet.visible == false && make_visible) {
+        toilet.visible = true;
+        toilet.marker.addTo(map);
+    } else {
+        return;
     }
 }
 
-// helper function to get marker id. 
-function get_marker_id(marker_event) {
-    return marker_event.target.options.id;
+
+// helper function to get marker index. 
+function get_marker_index(marker_event) {
+    return marker_event.target.options.index;
 }
 
-// get toilets from our database. 
-function get_toilets(callback) {
-    fetch('http://example.com/movies.json') // change url to correct one.
-        .then(response => response.json())
-        .then(data => {
-            if(callback) callback(data);
-        });
-}
-
-async function update_toilet(url = '', data = {}) {
-
-    const response = await fetch(url, {
-        method: 'POST', 
-        mode: 'cors', 
-        cache: 'no-cache', 
-        credentials: 'same-origin', 
-        headers: { 'Content-Type': 'application/json' },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer', 
-        body: JSON.stringify(data) 
-    });
-
-    return response.json(); 
-}
