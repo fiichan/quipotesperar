@@ -11,7 +11,6 @@ const toilet_icon = L.icon({
 });
 let markers = null;
 
-
 // create map instance and add base layer from carto
 const map = L.map('map').setView([41.389596925956106, 2.1655470275217112], 13);
 const basemap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -20,11 +19,11 @@ const basemap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyag
     maxZoom: 20
 }).addTo(map);
 
-
+// get toilets from databse, on request complete add default filtered toilets to map.
 get_toilets((data) => {
     markers = generate_markers(data);
     filter_toilets(markers, {
-        category: "Natació"
+        category: null
     });
 });
 
@@ -33,6 +32,7 @@ function on_marker_click(e) {
     const index = get_marker_index(e);
 }
 
+// generate marker object
 function generate_markers(data) {
     const toilets = [];
     for (let i = 0; i < data.length; i++) {
@@ -47,6 +47,7 @@ function generate_markers(data) {
     return toilets;
 }
 
+// generate actual map marker
 function generate_map_marker(lat, lon, index) {
     const m = L.marker([lat, lon], {
         index: index
@@ -55,7 +56,7 @@ function generate_map_marker(lat, lon, index) {
     return m;
 }
 
-// add toilet markers to map
+// add toilet markers to map based on selected filter parameters
 function filter_toilets(toilets, filter) {
 
     for (let i = 0; i < toilets.length; i++) {
@@ -76,6 +77,7 @@ function filter_toilets(toilets, filter) {
     }
 }
 
+// function to check if marker needs to add removed or left as is. 
 function toggle_marker(toilet, make_visible) {
     if(toilet.visible && make_visible) {
         return;
