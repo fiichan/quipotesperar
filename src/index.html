@@ -69,18 +69,19 @@
             <!--Filter Sidebar-->
             <div class="column is-narrow">
                 <aside id="filters-sidebar" class="menu">
-                    <div class="field">
-                        <p class="control has-icons-left">
-                            <input class="input" type="text"
-                                placeholder="Search">
-                            <span class="icon is-small is-left">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <p class="menu-label">Filtros</p>
                     <!--Main Filters-->
                     <ul class="menu-list">
+                        <!--li>
+                            <a>
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-bars"></i>
+                                    </span>
+                                    <span>Filters</span>
+                                </span>
+                            </a>
+                        </li-->
+                        <br>
                         <li>
                             <input id="filter-opennow" type="checkbox"
                                 name="filter-opennow" class="switch is-rounded"
@@ -164,13 +165,13 @@
                                     </label>
                                 </li>
                                 <li><input id="filter-bin" type="checkbox"
-                                    name="filter-bin"
-                                    class="switch is-rounded"
-                                    checked="checked">
-                                <label for="filter-bin">
-                                    <span>Papelera</span>
-                                </label>
-                            </li>
+                                        name="filter-bin"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-bin">
+                                        <span>Papelera</span>
+                                    </label>
+                                </li>
                                 <li><input id="filter-lock" type="checkbox"
                                         name="filter-lock"
                                         class="switch is-rounded"
@@ -290,7 +291,8 @@
                             </ul>
                         </li>
                         <li>
-                            <a><input id="filter-menstruatingfriendly" type="checkbox"
+                            <a><input id="filter-menstruatingfriendly"
+                                    type="checkbox"
                                     name="filter-menstruatingfriendly"
                                     class="switch is-rounded" checked="checked">
                                 <label for="filter-menstruatingfriendly">
@@ -303,15 +305,18 @@
                             </ul>
                         </li>
                         <li>
-                            <a><input id="filter-handicapfriendly" type="checkbox"
+                            <a><input id="filter-handicapfriendly"
+                                    type="checkbox"
                                     name="filter-handicapfriendly"
                                     class="switch is-rounded" checked="checked">
                                 <label for="filter-handicapfriendly">
-                                    <span>Para adultos mayores y personas con movilidad reducida</span>
+                                    <span>Para adultos mayores y personas con
+                                        movilidad reducida</span>
                                 </label></a>
                             <ul>
                                 <li class="has-text-grey-light">Incluye:</li>
-                                <li>Accesible para personas con movilidad reducida</li>
+                                <li>Accesible para personas con movilidad
+                                    reducida</li>
                                 <li>Barras de apoyo</li>
                                 <li>A nivel del suelo</li>
                             </ul>
@@ -352,6 +357,13 @@
                                 <i class="fa-regular fa-clock"></i>
                             </span>
                             <span>Abierto ahora</span>
+                        </span>
+                        <span id="toilet-outoforder"
+                            class="tag is-medium is-danger">
+                            <span class="icon">
+                                <i class="fa-solid fa-x"></i>
+                            </span>
+                            <span>Fuera de servicio</span>
                         </span>
                     </div>
                     <hr>
@@ -407,9 +419,9 @@
                     <div class="toilet-tags">
                         <h4 class="is-size-6"><strong>Área del inodoro</strong>
                         </h4>
-                        <span class="tag is-light is-medium is-success">
+                        <span class="tag is-light is-medium">
                             <span class="icon">
-                                <i class="fa-solid fa-check"></i>
+                                <i class="fa-solid fa-question"></i>
                             </span>
                             <span>Urinario</span>
                         </span>

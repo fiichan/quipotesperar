@@ -51,3 +51,8 @@ span.close i:hover {
 #toilet-opennow {
     margin-top: 15px;
 }
+
+/*Toilet Form*/
+.toiletform-question {
+    margin-bottom: 10px;
+}
