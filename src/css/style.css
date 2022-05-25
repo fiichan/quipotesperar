@@ -5,9 +5,9 @@ body,
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/*#app {
+#app {
     min-height: 100%;
-}*/
+}
 .navbar {
     background-color: aquamarine;
 }
@@ -50,4 +50,9 @@ span.close i:hover {
 }
 #toilet-opennow {
     margin-top: 15px;
+}
+
+/*Toilet Form*/
+.toiletform-question {
+    margin-bottom: 10px;
 }
