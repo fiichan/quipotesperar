@@ -9,7 +9,11 @@ body,
     min-height: 100%;
 }
 .navbar {
-    background-color: aquamarine;
+    background-color: rgb(191, 165, 254);
+}
+.button.is-primary {
+    background-color: rgb(165,235,235);
+    color: black;
 }
 
 /*Filters*/
