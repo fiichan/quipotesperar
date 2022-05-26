@@ -44,32 +44,37 @@
                 <a class="navbar-item" href="index.html">
                     #QUIPOTESPERAR Mapa de lavabos
                 </a>
+                <a role="button" class="navbar-burger" aria-label="menu"
+                    aria-expanded="false" data-target="navbar-content">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
-            <div class="navbar-start">
-                <a class="navbar-item">Contacto</a>
-            </div>
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary" href="addtoilet.html">
-                            <strong>Añadir lavabo</strong>
-                        </a>
-                        <!--a class="button is-text">
-                            EN
-                        </a-->
+            <div id="navbar-content" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item">Contacto</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary" href="addtoilet.html">
+                                <strong>Añadir lavabo</strong>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </nav>
 
         <section class="main-content columns container">
-            <div class="column is-8 is-offset-2">
+            <div class="column is-12">
                 <h1 class="is-size-2">Añadir lavabo</h1>
                 <p>Instructions go here</p>
                 <br>
 
-                <form class="columns">
-                    <div class="columns column is-12">
+                <form class="columns column is-12">
+                    <div class="column is-12">
                         <div class="field column is-8">
                             <label class="label">Nombre del lugar</label>
                             <div class="control">
@@ -95,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="field column is-3">
+                        <div class="field column is-6">
                             <label class="label">¿Es gratuito?</label>
                             <div class="control">
                                 <label class="radio">
@@ -123,7 +128,7 @@
                     </div>
 
                     <!--Toilet Areas Questions-->
-                    <div class="column is-12">
+                    <div class="columns column is-12">
                         <table class="table is-fullwidth">
                             <!--General-->
                             <div class="toiletform-question">
@@ -239,6 +244,19 @@
                                             name="soapdispenser"></td>
                                 </tr>
                                 <tr>
+                                    <th>cambiador para bebés?</th>
+                                    <td><input class="is-checkradio"
+                                            id="babychanger-yes" type="radio"
+                                            name="babychanger"
+                                            checked="checked"></td>
+                                    <td><input class="is-checkradio"
+                                            id="babychanger-no" type="radio"
+                                            name="babychanger"></td>
+                                    <td><input class="is-checkradio"
+                                            id="babychanger-idk" type="radio"
+                                            name="babychanger"></td>
+                                </tr>
+                                <tr>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -334,6 +352,7 @@
                         </div>
                     </div>
 
+                    <!--Opening Hours - Detail-->
                     <div class="column is-12">
                         <table class="table is-fullwidth">
                             <tr>
@@ -539,13 +558,6 @@
                 </form>
             </div>
         </section>
-        <!--footer class="footer">
-        <div class="container">
-            <div class="content has-text-centered">
-                <p>Hello</p>
-            </div>
-        </div>
-    </footer-->
     </div>
 
     <!-- custom js should be last line of the body -->
