@@ -16,53 +16,6 @@ body,
     color: black;
 }
 
-/*Filters*/
-#filters-sidebar {
-    height: 100vh;
-    overflow: scroll;
-}
-#filters-sidebar aside {
-    padding-top: 15px;
-    padding-left: 20px;
-}
-#filters-toggle span {
-    margin-top: 5px;
-}
-.menu-list {
-    margin-bottom: 15px;
-}
-
-/*Map*/
-#map-container {
-    min-width: 50vw;
-}
-#map {
-    min-height: 100vh;
-}
-#filter-bar {
-    padding-bottom: 15px;
-}
-
-/*Toilet*/
-#toilet-sidebar {
-    height: 100vh;
-    overflow: scroll;
-    padding-top: 15px;
-}
-#toilet-sidebar div {
-    margin-bottom: 20px;
-}
-span.close {
-    float: right;
-}
-span.close i:hover {
-    color:hsl(348, 100%, 61%);	
-    cursor: pointer;
-}
-#toilet-opennow {
-    margin-top: 15px;
-}
-
 /*Toilet Form*/
 .toiletform-question {
     margin-bottom: 10px;
