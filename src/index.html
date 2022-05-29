@@ -398,8 +398,8 @@
                         <i class="fa-solid fa-x"></i>
                     </span>
                     <h2 id="toilet-name" class="is-size-3">Toilet Name</h2>
-                    <p>Place Type (Public, Library...)</p>
-                    <p>Toilet type (Lavabo en la calle/Lavabo en edificio
+                    <p id="location-type">Place Type (Public, Library...)</p>
+                    <p id="toilet-type">Toilet type (Lavabo en la calle/Lavabo en edificio
                         público)</p>
                     <a id="google_maps_url" href="https://goo.gl/maps/iXMS9Jdt5kv4oZiz6"
                         target="_blank">
@@ -410,14 +410,14 @@
                             <span id="address">Carrer dels Angels, 20</span>
                         </p>
                     </a>
-                    <span id="toilet-opennow"
+                    <span id="toilet-open-now"
                         class="tag is-medium is-success">
                         <span class="icon">
                             <i class="fa-regular fa-clock"></i>
                         </span>
                         <span>Abierto ahora</span>
                     </span>
-                    <span id="toilet-outoforder"
+                    <span id="toilet-out-of-order"
                         class="tag is-medium is-danger">
                         <span class="icon">
                             <i class="fa-solid fa-x"></i>
@@ -565,7 +565,7 @@
                             <td>
                                 Lunes
                             </td>
-                            <td>
+                            <td class="times" data-time="mon-times">
                                 9:00 - 20:00
                             </td>
                         </tr>
@@ -573,7 +573,7 @@
                             <td>
                                 Martes
                             </td>
-                            <td>
+                            <td class="times" data-time="tue-times">
                                 9:00 - 20:00
                             </td>
                         </tr>
@@ -581,7 +581,7 @@
                             <td>
                                 Miércoles
                             </td>
-                            <td>
+                            <td class="times" data-time="wed-times">
                                 9:00 - 20:00
                             </td>
                         </tr>
@@ -589,7 +589,7 @@
                             <td>
                                 Jueves
                             </td>
-                            <td>
+                            <td class="times" data-time="thu-times">
                                 9:00 - 20:00
                             </td>
                         </tr>
@@ -597,7 +597,7 @@
                             <td>
                                 Viernes
                             </td>
-                            <td>
+                            <td class="times" data-time="fri-times">
                                 9:00 - 20:00
                             </td>
                         </tr>
@@ -605,7 +605,7 @@
                             <td>
                                 Sábado
                             </td>
-                            <td>
+                            <td class="times" data-time="sat-times">
                                 24 Hours
                             </td>
                         </tr>
@@ -613,7 +613,7 @@
                             <td>
                                 Domingo
                             </td>
-                            <td>
+                            <td class="times" data-time="sun-times">
                                 Closed
                             </td>
                         </tr>
@@ -624,7 +624,7 @@
 
                 <div>
                     <h3 class="is-size-5">Notas</h3>
-                    <p>Ground and floor 2. Baby-change on ground floor only.
+                    <p id="notes">Ground and floor 2. Baby-change on ground floor only.
                     </p>
                 </div>
 

@@ -34,7 +34,6 @@ get_toilets((data) => {
 
 function on_marker_click(e) {
     const index = get_marker_index(e);
-    console.log(markers[index]);
     update_ui(markers[index]);
 }
 
