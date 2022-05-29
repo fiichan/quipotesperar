@@ -9,13 +9,20 @@ const toilet_icon = L.icon({
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
-const map = L.map('map').setView([41.389596925956106, 2.1655470275217112], 13);
+const map = L.map('map', {
+    zoomControl: false
+});
+map.setView([41.389596925956106, 2.1655470275217112], 13);
+
 const basemap = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 20
 }).addTo(map);
 
+L.control.zoom({
+    position: "topright"
+}).addTo(map);
 
 let markers = null;
 get_toilets((data) => {
