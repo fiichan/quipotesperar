@@ -53,6 +53,30 @@ body,
     width: 450px;
 }
 
+.menu-list li ul {
+    border-left: none;
+}
+
+#main-filters li {
+    padding-left: 2px;
+}
+#adv-filters {
+    padding-left: 0;
+}
+.toilet-tags .tag {
+    margin-bottom: 10px;
+}
+
+.filter-subcategory a {
+    margin-bottom: 0 !important;
+}
+.filter-subcategory ul {
+    margin-top: 0 !important;
+}
+.menu-list a:hover {
+    background-color: #fff;
+}
+
 
 
 
