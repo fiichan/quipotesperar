@@ -42,7 +42,7 @@
 <body>
     <div id="app">
         <!--Navbar-->
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav id="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="index.html">
                     Mapa de lavabos
@@ -66,597 +66,581 @@
                 </div>
             </div>
         </nav>
+        
+        <!--Map Container-->
+        <div id="map"></div>
+        
+        <!--Filter Sidebar-->
+        <div id="filters-panel" class="side-bar">
+            <aside>
 
-        <section class="main-content columns container">
-            <!--Filter Sidebar-->
-            <div id="filters-sidebar"
-                class="column is-3 is-three-quarters-mobile">
-                <aside class="menu">
-
-                    <a id="filters-toggle" class="is-size-4 has-text-black-bis">
-                        <span class="icon-text">
-                            <span class="icon" title="Ocultar panel">
-                                <i class="fa-solid fa-angle-left"></i>
-                            </span>
-                            <span>Filters</span>
+                <a id="filters-toggle" class="is-size-4 has-text-black-bis">
+                    <span class="icon-text">
+                        <span class="icon" title="Ocultar panel">
+                            <i class="fa-solid fa-angle-left"></i>
                         </span>
-                    </a>
-                    <hr>
+                        <span>Filters</span>
+                    </span>
+                </a>
+                <hr>
 
-                    <!--Main Filters-->
-                    <ul class="menu-list">
-                        <br>
+                <!--Main Filters-->
+                <ul class="menu-list">
+                    <br>
+                    <li>
+                        <input id="filter-opennow" type="checkbox"
+                            name="filter-opennow" class="switch is-rounded"
+                            checked="checked">
+                        <label for="filter-opennow">
+                            <span>Abierto ahora</span>
+                        </label>
+                    </li>
+                    <li>
+                        <input id="filter-free" type="checkbox"
+                            name="filter-free" class="switch is-rounded"
+                            checked="checked">
+                        <label for="filter-free">
+                            <span>Gratuito</span>
+                        </label>
+                    </li>
+                    <li>
+                        <input id="filter-handicap" type="checkbox"
+                            name="filter-handicap" class="switch is-rounded"
+                            checked="checked">
+                        <label for="filter-handicap">
+                            <span>Accesible para personas con movilidad
+                                reducida</span>
+                        </label>
+                    </li>
+                </ul>
+
+                <ul class="menu-list">
+                    <li>
+                        <a class="menu-label is-size-6">
+                            <span class="icon-text">
+                                <span>Filtros avanzados</span>
+                                <span class="icon">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </span>
+                            </span>
+                        </a>
+                    </li>
+
+                    <!--Gender-->
+                    <ul>
                         <li>
-                            <input id="filter-opennow" type="checkbox"
-                                name="filter-opennow" class="switch is-rounded"
-                                checked="checked">
-                            <label for="filter-opennow">
-                                <span>Abierto ahora</span>
-                            </label>
-                        </li>
-                        <li>
-                            <input id="filter-free" type="checkbox"
-                                name="filter-free" class="switch is-rounded"
-                                checked="checked">
-                            <label for="filter-free">
-                                <span>Gratuito</span>
-                            </label>
-                        </li>
-                        <li>
-                            <input id="filter-handicap" type="checkbox"
-                                name="filter-handicap" class="switch is-rounded"
-                                checked="checked">
-                            <label for="filter-handicap">
-                                <span>Accesible para personas con movilidad
-                                    reducida</span>
-                            </label>
+                            <a class="menu-label"><span class="icon-text">
+                                    <span>Género</span>
+                                    <span class="icon">
+                                        <i
+                                            class="fa-solid fa-angle-down"></i>
+                                    </span>
+                                </span></a>
+                            <ul>
+                                <li><input id="filter-unisex"
+                                        type="checkbox" name="filter-unisex"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-unisex">
+                                        <span>Neutro</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-female"
+                                        type="checkbox" name="filter-female"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-female">
+                                        <span>Mujer</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-male" type="checkbox"
+                                        name="filter-male"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-male">
+                                        <span>Hombre</span>
+                                    </label>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
 
-                    <ul class="menu-list">
+                    <!--Toilet Area-->
+                    <ul>
                         <li>
-                            <a class="menu-label is-size-6">
-                                <span class="icon-text">
-                                    <span>Filtros avanzados</span>
+                            <a class="menu-label"><span class="icon-text">
+                                    <span>Área del inodoro</span>
                                     <span class="icon">
-                                        <i class="fa-solid fa-angle-down"></i>
+                                        <i
+                                            class="fa-solid fa-angle-down"></i>
+                                    </span>
+                                </span></a>
+                            <ul>
+                                <li><input id="filter-urinal"
+                                        type="checkbox" name="filter-urinal"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-urinal">
+                                        <span>Urinario</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-sinkintoilet"
+                                        type="checkbox"
+                                        name="filter-sinkintoilet"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-sinkintoilet">
+                                        <span>Lavamanos</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-bin" type="checkbox"
+                                        name="filter-bin"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-bin">
+                                        <span>Papelera</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-lock" type="checkbox"
+                                        name="filter-lock"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-lock">
+                                        <span>Cerrojo</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!--Sink Area-->
+                    <ul>
+                        <li>
+                            <a class="menu-label">
+                                <span class="icon-text">
+                                    <span>Área del lavamanos</span>
+                                    <span class="icon">
+                                        <i
+                                            class="fa-solid fa-angle-down"></i>
                                     </span>
                                 </span>
                             </a>
+                            <ul>
+                                <li><input id="filter-sink" type="checkbox"
+                                        name="filter-sink"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-sink">
+                                        <span>Lavamanos</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-handdryer"
+                                        type="checkbox"
+                                        name="filter-handdryer"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-handdryer">
+                                        <span>Secador de manos</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-soapdispenser"
+                                        type="checkbox"
+                                        name="filter-soapdispenser"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-soapdispenser">
+                                        <span>Dispensador de
+                                            jabón</span>
+                                    </label>
+                                </li>
+                            </ul>
+
                         </li>
-
-                        <!--Gender-->
-                        <ul>
-                            <li>
-                                <a class="menu-label"><span class="icon-text">
-                                        <span>Género</span>
-                                        <span class="icon">
-                                            <i
-                                                class="fa-solid fa-angle-down"></i>
-                                        </span>
-                                    </span></a>
-                                <ul>
-                                    <li><input id="filter-unisex"
-                                            type="checkbox" name="filter-unisex"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-unisex">
-                                            <span>Neutro</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-female"
-                                            type="checkbox" name="filter-female"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-female">
-                                            <span>Mujer</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-male" type="checkbox"
-                                            name="filter-male"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-male">
-                                            <span>Hombre</span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <!--Toilet Area-->
-                        <ul>
-                            <li>
-                                <a class="menu-label"><span class="icon-text">
-                                        <span>Área del inodoro</span>
-                                        <span class="icon">
-                                            <i
-                                                class="fa-solid fa-angle-down"></i>
-                                        </span>
-                                    </span></a>
-                                <ul>
-                                    <li><input id="filter-urinal"
-                                            type="checkbox" name="filter-urinal"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-urinal">
-                                            <span>Urinario</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-sinkintoilet"
-                                            type="checkbox"
-                                            name="filter-sinkintoilet"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-sinkintoilet">
-                                            <span>Lavamanos</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-bin" type="checkbox"
-                                            name="filter-bin"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-bin">
-                                            <span>Papelera</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-lock" type="checkbox"
-                                            name="filter-lock"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-lock">
-                                            <span>Cerrojo</span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <!--Sink Area-->
-                        <ul>
-                            <li>
-                                <a class="menu-label">
-                                    <span class="icon-text">
-                                        <span>Área del lavamanos</span>
-                                        <span class="icon">
-                                            <i
-                                                class="fa-solid fa-angle-down"></i>
-                                        </span>
-                                    </span>
-                                </a>
-                                <ul>
-                                    <li><input id="filter-sink" type="checkbox"
-                                            name="filter-sink"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-sink">
-                                            <span>Lavamanos</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-handdryer"
-                                            type="checkbox"
-                                            name="filter-handdryer"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-handdryer">
-                                            <span>Secador de manos</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-soapdispenser"
-                                            type="checkbox"
-                                            name="filter-soapdispenser"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-soapdispenser">
-                                            <span>Dispensador de
-                                                jabón</span>
-                                        </label>
-                                    </li>
-                                </ul>
-
-                            </li>
-                        </ul>
-
-                        <!--Access-->
-                        <ul>
-                            <li>
-                                <a class="menu-label">
-                                    <span class="icon-text">
-                                        <span>Acceso</span>
-                                        <span class="icon">
-                                            <i
-                                                class="fa-solid fa-angle-down"></i>
-                                        </span>
-                                    </span>
-                                </a>
-                                <ul>
-                                    <li><input id="filter-groundlv"
-                                            type="checkbox"
-                                            name="filter-groundlv"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-groundlv">
-                                            <span>A nivel del
-                                                suelo</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-stairs"
-                                            type="checkbox" name="filter-stairs"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-stairs">
-                                            <span>Con escaleras</span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <!--Location-->
-                        <ul>
-                            <li>
-                                <a class="menu-label">
-                                    <span class="icon-text">
-                                        <span>Ubicación</span>
-                                        <span class="icon">
-                                            <i
-                                                class="fa-solid fa-angle-down"></i>
-                                        </span>
-                                    </span>
-                                </a>
-                                <ul>
-                                    <li><input id="filter-cabintoilet"
-                                            type="checkbox"
-                                            name="filter-cabintoilet"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-cabintoilet">
-                                            <span>En la calle</span>
-                                        </label>
-                                    </li>
-                                    <li><input id="filter-publicbuilding"
-                                            type="checkbox"
-                                            name="filter-publicbuilding"
-                                            class="switch is-rounded"
-                                            checked="checked">
-                                        <label for="filter-publicbuilding">
-                                            <span>En edificio público</span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <!--Users-->
-                        <ul>
-                            <li>
-                                <a><input id="filter-familyfriendly"
-                                        type="checkbox"
-                                        name="filter-familyfriendly"
-                                        class="switch is-rounded"
-                                        checked="checked">
-                                    <label for="filter-familyfriendly">
-                                        <span>Para familias</span>
-                                    </label></a>
-                                <ul>
-                                    <li class="has-text-grey-light">Incluye:
-                                    </li>
-                                    <li>Cambiador para bebés</li>
-                                    <li>A nivel del suelo</li>
-                                    <li>Secador de manos</li>
-                                    <li>Papelera</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a><input id="filter-menstruatingfriendly"
-                                        type="checkbox"
-                                        name="filter-menstruatingfriendly"
-                                        class="switch is-rounded"
-                                        checked="checked">
-                                    <label for="filter-menstruatingfriendly">
-                                        <span>Para personas menstruantes</span>
-                                    </label></a>
-                                <ul>
-                                    <li class="has-text-grey-light">Incluye:
-                                    </li>
-                                    <li>Basurero</li>
-                                    <li>Lavamanos en área del lavabo</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a><input id="filter-handicapfriendly"
-                                        type="checkbox"
-                                        name="filter-handicapfriendly"
-                                        class="switch is-rounded"
-                                        checked="checked">
-                                    <label for="filter-handicapfriendly">
-                                        <span>Para adultos mayores y personas
-                                            con
-                                            movilidad reducida</span>
-                                    </label></a>
-                                <ul>
-                                    <li class="has-text-grey-light">Incluye:
-                                    </li>
-                                    <li>Accesible para personas con movilidad
-                                        reducida</li>
-                                    <li>Barras de apoyo</li>
-                                    <li>A nivel del suelo</li>
-                                </ul>
-                            </li>
-                        </ul>
-
                     </ul>
-                </aside>
-            </div>
 
-            <!--Map Container-->
-            <div id="map-container" class="column">
-                <div id="map">
+                    <!--Access-->
+                    <ul>
+                        <li>
+                            <a class="menu-label">
+                                <span class="icon-text">
+                                    <span>Acceso</span>
+                                    <span class="icon">
+                                        <i
+                                            class="fa-solid fa-angle-down"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul>
+                                <li><input id="filter-groundlv"
+                                        type="checkbox"
+                                        name="filter-groundlv"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-groundlv">
+                                        <span>A nivel del
+                                            suelo</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-stairs"
+                                        type="checkbox" name="filter-stairs"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-stairs">
+                                        <span>Con escaleras</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
 
-                </div>
-            </div>
+                    <!--Location-->
+                    <ul>
+                        <li>
+                            <a class="menu-label">
+                                <span class="icon-text">
+                                    <span>Ubicación</span>
+                                    <span class="icon">
+                                        <i
+                                            class="fa-solid fa-angle-down"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul>
+                                <li><input id="filter-cabintoilet"
+                                        type="checkbox"
+                                        name="filter-cabintoilet"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-cabintoilet">
+                                        <span>En la calle</span>
+                                    </label>
+                                </li>
+                                <li><input id="filter-publicbuilding"
+                                        type="checkbox"
+                                        name="filter-publicbuilding"
+                                        class="switch is-rounded"
+                                        checked="checked">
+                                    <label for="filter-publicbuilding">
+                                        <span>En edificio público</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
 
-            <!--Toilet Pane-->
-            <div class="column is-narrow is-three-quarters-mobile">
-                <aside id="toilet-sidebar">
-                    <!--General-->
-                    <div>
-                        <span class="close icon has-text-grey">
+                    <!--Users-->
+                    <ul>
+                        <li>
+                            <a><input id="filter-familyfriendly"
+                                    type="checkbox"
+                                    name="filter-familyfriendly"
+                                    class="switch is-rounded"
+                                    checked="checked">
+                                <label for="filter-familyfriendly">
+                                    <span>Para familias</span>
+                                </label></a>
+                            <ul>
+                                <li class="has-text-grey-light">Incluye:
+                                </li>
+                                <li>Cambiador para bebés</li>
+                                <li>A nivel del suelo</li>
+                                <li>Secador de manos</li>
+                                <li>Papelera</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><input id="filter-menstruatingfriendly"
+                                    type="checkbox"
+                                    name="filter-menstruatingfriendly"
+                                    class="switch is-rounded"
+                                    checked="checked">
+                                <label for="filter-menstruatingfriendly">
+                                    <span>Para personas menstruantes</span>
+                                </label></a>
+                            <ul>
+                                <li class="has-text-grey-light">Incluye:
+                                </li>
+                                <li>Basurero</li>
+                                <li>Lavamanos en área del lavabo</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a><input id="filter-handicapfriendly"
+                                    type="checkbox"
+                                    name="filter-handicapfriendly"
+                                    class="switch is-rounded"
+                                    checked="checked">
+                                <label for="filter-handicapfriendly">
+                                    <span>Para adultos mayores y personas
+                                        con
+                                        movilidad reducida</span>
+                                </label></a>
+                            <ul>
+                                <li class="has-text-grey-light">Incluye:
+                                </li>
+                                <li>Accesible para personas con movilidad
+                                    reducida</li>
+                                <li>Barras de apoyo</li>
+                                <li>A nivel del suelo</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </ul>
+            </aside>
+        </div>
+
+        <!--Toilet Pane-->
+        <div id="information-panel" class="side-bar">
+            <aside>
+                <div>
+                    <span class="close icon has-text-grey">
+                        <i class="fa-solid fa-x"></i>
+                    </span>
+                    <h2 class="is-size-3">Toilet Name</h2>
+                    <p>Place Type (Public, Library...)</p>
+                    <p>Toilet type (Lavabo en la calle/Lavabo en edificio
+                        público)</p>
+                    <a href="https://goo.gl/maps/iXMS9Jdt5kv4oZiz6"
+                        target="_blank">
+                        <p>
+                            <span class="icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <span>Carrer dels Angels, 20</span>
+                        </p>
+                    </a>
+                    <span id="toilet-opennow"
+                        class="tag is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </span>
+                        <span>Abierto ahora</span>
+                    </span>
+                    <span id="toilet-outoforder"
+                        class="tag is-medium is-danger">
+                        <span class="icon">
                             <i class="fa-solid fa-x"></i>
                         </span>
-                        <h2 class="is-size-3">Toilet Name</h2>
-                        <p>Place Type (Public, Library...)</p>
-                        <p>Toilet type (Lavabo en la calle/Lavabo en edificio
-                            público)</p>
-                        <a href="https://goo.gl/maps/iXMS9Jdt5kv4oZiz6"
-                            target="_blank">
-                            <p>
-                                <span class="icon">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </span>
-                                <span>Carrer dels Angels, 20</span>
-                            </p>
-                        </a>
-                        <span id="toilet-opennow"
-                            class="tag is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-regular fa-clock"></i>
-                            </span>
-                            <span>Abierto ahora</span>
-                        </span>
-                        <span id="toilet-outoforder"
-                            class="tag is-medium is-danger">
-                            <span class="icon">
-                                <i class="fa-solid fa-x"></i>
-                            </span>
-                            <span>Fuera de servicio</span>
-                        </span>
-                    </div>
-                    <hr>
+                        <span>Fuera de servicio</span>
+                    </span>
+                </div>
+                <hr>
 
-                    <!--Main Tags-->
-                    <div class="toilet-tags">
-                        <span class="tag is-light is-medium">
-                            <span class="icon">
-                                <i
-                                    class="fa-brands fa-creative-commons-nc-eu"></i>
-                            </span>
-                            <span>Gratuito</span>
+                <div class="toilet-tags">
+                    <span class="tag is-light is-medium">
+                        <span class="icon">
+                            <i
+                                class="fa-brands fa-creative-commons-nc-eu"></i>
                         </span>
-                        <span class="tag is-light is-medium">
-                            <span class="icon">
-                                <i class="fa-solid fa-euro-sign"></i>
-                            </span>
-                            <span>1.00</span>
+                        <span>Gratuito</span>
+                    </span>
+                    <span class="tag is-light is-medium">
+                        <span class="icon">
+                            <i class="fa-solid fa-euro-sign"></i>
                         </span>
-                        <span class="tag is-light is-medium is-info">
-                            <span class="icon">
-                                <i class="fa-solid fa-wheelchair-move"></i>
-                            </span>
-                            <span>Accesible para personas con movilidad
-                                reducida</span>
+                        <span>1.00</span>
+                    </span>
+                    <span class="tag is-light is-medium is-info">
+                        <span class="icon">
+                            <i class="fa-solid fa-wheelchair-move"></i>
                         </span>
-                    </div>
+                        <span>Accesible para personas con movilidad
+                            reducida</span>
+                    </span>
+                </div>
 
-                    <!--User Tags-->
-                    <div class="toilet-tags">
-                        <span class="tag is-light is-medium is-danger">
-                            <span class="icon">
-                                <i class="fa-solid fa-x"></i>
-                            </span>
-                            <span>Óptimo para familias</span>
+                <div class="toilet-tags">
+                    <span class="tag is-light is-medium is-danger">
+                        <span class="icon">
+                            <i class="fa-solid fa-x"></i>
                         </span>
-                        <span class="tag is-light is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <span>Óptimo para personas menstruantes</span>
+                        <span>Óptimo para familias</span>
+                    </span>
+                    <span class="tag is-light is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-solid fa-check"></i>
                         </span>
-                    </div>
+                        <span>Óptimo para personas menstruantes</span>
+                    </span>
+                </div>
 
-                    <hr>
+                <hr>
 
-                    <!--Gender Tags-->
-                    <div class="toilet-tags">
-                        <h4 class="is-size-6"><strong>Género</strong></h4>
-                        <span class="tag is-light is-medium is-danger">
-                            <span class="icon">
-                                <i class="fa-solid fa-x"></i>
-                            </span>
-                            <span>Neutro</span>
+                <div class="toilet-tags">
+                    <h4 class="is-size-6"><strong>Género</strong></h4>
+                    <span class="tag is-light is-medium is-danger">
+                        <span class="icon">
+                            <i class="fa-solid fa-x"></i>
                         </span>
-                        <span class="tag is-light is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <span>Mujer</span>
+                        <span>Neutro</span>
+                    </span>
+                    <span class="tag is-light is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-solid fa-check"></i>
                         </span>
-                        <span class="tag is-light is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <span>Hombre</span>
+                        <span>Mujer</span>
+                    </span>
+                    <span class="tag is-light is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-solid fa-check"></i>
                         </span>
-                    </div>
+                        <span>Hombre</span>
+                    </span>
+                </div>
 
-                    <!--Toilet Area Tags-->
-                    <div class="toilet-tags">
-                        <h4 class="is-size-6"><strong>Área del inodoro</strong>
-                        </h4>
-                        <span class="tag is-light is-medium">
-                            <span class="icon">
-                                <i class="fa-solid fa-question"></i>
-                            </span>
-                            <span>Urinario</span>
+                <div class="toilet-tags">
+                    <h4 class="is-size-6"><strong>Área del inodoro</strong>
+                    </h4>
+                    <span class="tag is-light is-medium">
+                        <span class="icon">
+                            <i class="fa-solid fa-question"></i>
                         </span>
-                        <span class="tag is-light is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <span>Lavamanos</span>
+                        <span>Urinario</span>
+                    </span>
+                    <span class="tag is-light is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-solid fa-check"></i>
                         </span>
-                        <span class="tag is-light is-medium is-danger">
-                            <span class="icon">
-                                <i class="fa-solid fa-x"></i>
-                            </span>
-                            <span>Cambiador para bebés</span>
+                        <span>Lavamanos</span>
+                    </span>
+                    <span class="tag is-light is-medium is-danger">
+                        <span class="icon">
+                            <i class="fa-solid fa-x"></i>
                         </span>
-                        <span class="tag is-light is-medium is-danger">
-                            <span class="icon">
-                                <i class="fa-solid fa-x"></i>
-                            </span>
-                            <span>Cerrojo</span>
+                        <span>Cambiador para bebés</span>
+                    </span>
+                    <span class="tag is-light is-medium is-danger">
+                        <span class="icon">
+                            <i class="fa-solid fa-x"></i>
                         </span>
-                    </div>
+                        <span>Cerrojo</span>
+                    </span>
+                </div>
 
-                    <!--Sink Area Tags-->
-                    <div class="toilet-tags">
-                        <h4 class="is-size-6"><strong>Área del
-                                lavamanos</strong></h4>
-                        <span class="tag is-light is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <span>Lavamanos</span>
+                <div class="toilet-tags">
+                    <h4 class="is-size-6"><strong>Área del
+                            lavamanos</strong></h4>
+                    <span class="tag is-light is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-solid fa-check"></i>
                         </span>
-                        <span class="tag is-light is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <span>Secador de manos</span>
+                        <span>Lavamanos</span>
+                    </span>
+                    <span class="tag is-light is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-solid fa-check"></i>
                         </span>
-                        <span class="tag is-light is-medium is-danger">
-                            <span class="icon">
-                                <i class="fa-solid fa-x"></i>
-                            </span>
-                            <span>Dispensador de jabón</span>
+                        <span>Secador de manos</span>
+                    </span>
+                    <span class="tag is-light is-medium is-danger">
+                        <span class="icon">
+                            <i class="fa-solid fa-x"></i>
                         </span>
-                    </div>
+                        <span>Dispensador de jabón</span>
+                    </span>
+                </div>
 
-                    <!--Access Tags-->
-                    <div class="toilet-tags">
-                        <h4 class="is-size-6"><strong>Acceso</strong></h4>
-                        <span class="tag is-light is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <span>A nivel del suelo</span>
+                <div class="toilet-tags">
+                    <h4 class="is-size-6"><strong>Acceso</strong></h4>
+                    <span class="tag is-light is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-solid fa-check"></i>
                         </span>
-                        <span class="tag is-light is-medium is-success">
-                            <span class="icon">
-                                <i class="fa-solid fa-check"></i>
-                            </span>
-                            <span>Con escaleras</span>
+                        <span>A nivel del suelo</span>
+                    </span>
+                    <span class="tag is-light is-medium is-success">
+                        <span class="icon">
+                            <i class="fa-solid fa-check"></i>
                         </span>
-                    </div>
+                        <span>Con escaleras</span>
+                    </span>
+                </div>
 
-                    <!--Hours-->
+                <div>
+                    <h4 class="is-size-6"><strong>Horario</strong>
+                    </h4>
+                    <table class="table is-fullwidth">
+                        <tr>
+                            <td>
+                                Lunes
+                            </td>
+                            <td>
+                                9:00 - 20:00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Martes
+                            </td>
+                            <td>
+                                9:00 - 20:00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Miércoles
+                            </td>
+                            <td>
+                                9:00 - 20:00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Jueves
+                            </td>
+                            <td>
+                                9:00 - 20:00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Viernes
+                            </td>
+                            <td>
+                                9:00 - 20:00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Sábado
+                            </td>
+                            <td>
+                                24 Hours
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Domingo
+                            </td>
+                            <td>
+                                Closed
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h3 class="is-size-5">Notas</h3>
+                    <p>Ground and floor 2. Baby-change on ground floor only.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="is-size-5">Está esto correcto?</h3>
                     <div>
-                        <h4 class="is-size-6"><strong>Horario</strong>
-                        </h4>
-                        <table class="table is-fullwidth">
-                            <tr>
-                                <td>
-                                    Lunes
-                                </td>
-                                <td>
-                                    9:00 - 20:00
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Martes
-                                </td>
-                                <td>
-                                    9:00 - 20:00
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Miércoles
-                                </td>
-                                <td>
-                                    9:00 - 20:00
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Jueves
-                                </td>
-                                <td>
-                                    9:00 - 20:00
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Viernes
-                                </td>
-                                <td>
-                                    9:00 - 20:00
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Sábado
-                                </td>
-                                <td>
-                                    24 Hours
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Domingo
-                                </td>
-                                <td>
-                                    Closed
-                                </td>
-                            </tr>
-                        </table>
+                        <button class="button is-success is-outlined">Sí,
+                            confirmo</button>
+                        <button class="button is-danger is-outlined">No,
+                            quiero modificar información</button>
                     </div>
+                    <p>Última actualización: 25/05/2022, 2:25</p>
+                </div>
 
-                    <hr>
-                    <!--Notes-->
-                    <div>
-                        <h3 class="is-size-5">Notas</h3>
-                        <p>Ground and floor 2. Baby-change on ground floor only.
-                        </p>
-                    </div>
-
-                    <!--Update-->
-                    <div>
-                        <h3 class="is-size-5">Está esto correcto?</h3>
-                        <div>
-                            <button class="button is-success is-outlined">Sí,
-                                confirmo</button>
-                            <button class="button is-danger is-outlined">No,
-                                quiero modificar información</button>
-                        </div>
-                        <p>Última actualización: 25/05/2022, 2:25</p>
-                    </div>
-
-                </aside>
-            </div>
-        </section>
+            </aside>
+        </div>
     </div>
     <!-- custom js should be last line of the body -->
     <script src="js/index.js"></script>
