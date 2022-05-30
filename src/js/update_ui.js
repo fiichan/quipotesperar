@@ -3,13 +3,14 @@ const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const toilet_name = document.getElementById("toilet-name");
 const address = document.getElementById('address');
-const address_url = document.getElementById('google_maps_url')
-const location_type = document.getElementById('location-type');
-const toilet_type = document.getElementById('toilet-type');
+const address_url = document.getElementById('google_maps_url');
+const location_type = document.getElementById('location-type')
+const toilet_type = document.getElementById('toilet-type')
 const open_now = document.getElementById('toilet-open-now');
-const out_of_order = document.getElementById('toilet-out-of-order')
+const out_of_order = document.getElementById('toilet-out-of-order');
 const times = document.getElementsByClassName('times');
 const notes = document.getElementById('notes');
+const notes_content = document.getElementById('notes-content');
 
 function update_ui(data) {
     console.log(data);
@@ -17,6 +18,12 @@ function update_ui(data) {
     generate_google_maps_url(data.address);
     set_hours(data.times);
     out_of_order.classList.toggle('is-hidden', !!!+data.out_of_order);
+    set_notes(data.notes.trim());
+}
+
+function set_notes(info) {
+    notes.classList.toggle('is-hidden', !info);
+    notes_content.innerHTML = info;
 }
 
 function generate_google_maps_url(address_str) {
