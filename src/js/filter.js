@@ -5,7 +5,7 @@ for (let j = 0; j < options.length; j++) {
     const o = options[j];
     o.addEventListener("change", (e) => {
         const filter = e.target.name;
-        console.log(filter);
+        
         if(e.currentTarget.checked) {
             filters[filter] = 1;
         } else {

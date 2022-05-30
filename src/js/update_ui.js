@@ -13,7 +13,6 @@ const notes = document.getElementById('notes');
 const notes_content = document.getElementById('notes-content');
 
 function update_ui(data) {
-    console.log(data);
     toilet_name.innerHTML = data.name;
     generate_google_maps_url(data.address);
     set_hours(data.times);
