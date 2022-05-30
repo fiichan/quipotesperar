@@ -12,9 +12,11 @@ const times = document.getElementsByClassName('times');
 const notes = document.getElementById('notes');
 
 function update_ui(data) {
+    console.log(data);
     toilet_name.innerHTML = data.name;
     generate_google_maps_url(data.address);
     set_hours(data.times);
+    out_of_order.classList.toggle('is-hidden', !!!+data.out_of_order);
 }
 
 function generate_google_maps_url(address_str) {
@@ -30,30 +32,44 @@ function generate_google_maps_url(address_str) {
 }
 
 function currently_open(days_hours) {
+    
     const now = new Date();
     const day = now.getDay() - 1;
+
     for (let i = 0; i < days_hours.length; i++) {
         const ds_hs = days_hours[i];
+    
         if(ds_hs[0].length === 1) {
             if(days.indexOf(ds_hs[0][0]) === day) {
-                
+                if(check_time(now, ds_hs[1])) return true;
             }
+    
         } else {
-
+            if(day >= days.indexOf(ds_hs[0][0]) && day <= days.indexOf(ds_hs[0][1])) {
+                if(check_time(now, ds_hs[1])) return true;
+            }
         }
     }
 
-    const hour = now.getHours();
-    const minute = now.getMinutes();
+    return false;
+}
 
+function check_time(curr, hours) {
+    const now = parseFloat(`${curr.getHours()}.${curr.getMinutes()}`);
+
+    for (let i = 0; i < hours.length; i++) {
+        const range = hours[i];
+        if(now >= range[0] && now <= range[1]) return true;
+    }
+    
     return false;
 }
 
 function set_hours(time_str) {
     const days_hours = deconstruct_time_str(time_str);
-    console.log(days_hours);
     let is_open = (days_hours != null) ? currently_open(days_hours) : false;
-    console.log(is_open);
+    console.log(time_str);
+    open_now.classList.toggle('is-hidden', !is_open);
 }
 
 function deconstruct_time_str(time_str) {
