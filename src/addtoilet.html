@@ -44,17 +44,8 @@
                 <a class="navbar-item" href="index.html">
                     Mapa de lavabos
                 </a>
-                <a role="button" class="navbar-burger" aria-label="menu"
-                    aria-expanded="false" data-target="navbar-content">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
             </div>
             <div id="navbar-content" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item">Contacto</a>
-                </div>
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
@@ -68,67 +59,518 @@
         </nav>
 
         <section class="main-content container">
-            <div>
-                <h1 class="is-size-2">Añadir lavabo</h1>
-                <p>Instructions go here</p>
-                <br>
+            <h1 class="is-size-2">Añadir lavabo</h1>
+            <p>Añade algún lavabo que conozcas a nuestra base de datos. De
+                momento solo aceptamos información de lavabos públicos.</p>
+            <br>
 
-                <!--Form-->
-                <form>
-                    <div class="columns container">
+            <!--Form-->
+            <form>
+                <!--Basic Info-->
+                <div class="container">
+                    <div class="columns">
                         <div class="field column is-8">
                             <label class="label">Nombre del lugar</label>
                             <div class="control">
                                 <input class="input" type="text"
-                                    placeholder="Text input">
+                                    placeholder="ej: Cabina - Parque de la Ciutatella">
                             </div>
                         </div>
+                    </div>
+
+                    <div class="columns">
                         <div class="field column is-8">
                             <label class="label">Dirección</label>
                             <div class="control">
                                 <input class="input" type="text"
-                                    placeholder="Text input">
+                                    placeholder="Calle, número. ej: Carrer de l'Hospital, 56">
                             </div>
                         </div>
-                        <div class="field column is-3">
+                    </div>
+
+
+                    <div class="columns">
+                        <div class="field column is-2">
                             <label class="label">Ubicación</label>
                             <div class="control">
                                 <div class="select">
                                     <select>
-                                        <option>En la calle (cabina)</option>
+                                        <option>En la calle (cabina)
+                                        </option>
+                                        <option>Lavabo público</option>
                                         <option>En edificio público</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <div class="field column is-6">
-                            <label class="label">¿Es gratuito?</label>
+                        <div class="field column is-4">
+                            <label class="label">Tipo de
+                                establecimiento</label>
                             <div class="control">
-                                <label class="radio">
-                                    <input class="is-checkradio" id="free-yes"
-                                        type="radio" name="free"
-                                        checked="checked">
-                                    Sí
-                                </label>
-                            </div>
-                            <div class="control">
-                                <label class="radio">
-                                    <input class="is-checkradio" id="free-no"
-                                        type="radio" name="free">
-                                    No
-                                </label>
-                                <p class="control has-icons-left">
-                                    <input class="input" type="number"
-                                        placeholder="Precio">
-                                    <span class="icon is-small is-left">
-                                        <i class="fa-solid fa-euro-sign"></i>
-                                    </span>
-                                </p>
+                                <div class="select">
+                                    <select>
+                                        <option>Cabina</option>
+                                        <option>Lavabo público</option>
+                                        <option>Centro cívico</option>
+                                        <option>Hogar de ancianos</option>
+                                        <option>Centro cultural</option>
+                                        <option>Centro administrativo
+                                        </option>
+                                        <option>Centro educativo</option>
+                                        <option>Centro de jóvenes</option>
+                                        <option>Lugar de alimentos
+                                            (restaurante, café)</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
+                    <div class="columns">
+                        <div class="field column is-2">
+                            <label class="label">¿Es gratuito?</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select>
+                                        <option>Sí</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field column is-3">
+                            <label class="label">Precio</label>
+                            <p class="control has-icons-left">
+                                <input class="input" type="number"
+                                    placeholder="ej. 0.50">
+                                <span class="icon is-small is-left">
+                                    <i class="fa-solid fa-euro-sign"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Toilet Areas Questions-->
+                <div class="columns column is-12">
+                    <table class="table is-fullwidth">
+                        <!--General-->
+                        <div class="toiletform-question">
+                            <tr>
+                                <th>¿Hay...</th>
+                                <td>Sí</td>
+                                <td>No</td>
+                                <td>No sé</td>
+                            </tr>
+                            <tr>
+                                <th>lavabo(s) neutro? (sin género)</th>
+                                <td><input class="is-checkradio" id="unisex-yes"
+                                        type="radio" name="unisex"
+                                        checked="checked">
+                                </td>
+                                <td><input class="is-checkradio" id="unisex-no"
+                                        type="radio" name="unisex"></td>
+                                <td><input class="is-checkradio" id="unisex-idk"
+                                        type="radio" name="unisex"></td>
+                            </tr>
+                            <tr>
+                                <th>lavabo(s) de mujeres?</th>
+                                <td><input class="is-checkradio" id="women-yes"
+                                        type="radio" name="women"
+                                        checked="checked"></td>
+                                <td><input class="is-checkradio" id="women-no"
+                                        type="radio" name="women"></td>
+                                <td><input class="is-checkradio" id="women-idk"
+                                        type="radio" name="women"></td>
+                            </tr>
+                            <tr>
+                                <th>lavabo(s) de hombres?</th>
+                                <td><input class="is-checkradio" id="men-yes"
+                                        type="radio" name="men"
+                                        checked="checked"></td>
+                                <td><input class="is-checkradio" id="men-no"
+                                        type="radio" name="men"></td>
+                                <td><input class="is-checkradio" id="men-idk"
+                                        type="radio" name="men"></td>
+                            </tr>
+                            <tr>
+                                <th>lavabo accesible para personas con
+                                    movilidad
+                                    reducida?</th>
+                                <td><input class="is-checkradio"
+                                        id="handicap-yes" type="radio"
+                                        name="handicap" checked="checked">
+                                </td>
+                                <td><input class="is-checkradio"
+                                        id="handicap-no" type="radio"
+                                        name="handicap"></td>
+                                <td><input class="is-checkradio"
+                                        id="handicap-idk" type="radio"
+                                        name="handicap"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </div>
+
+                        <!--Sink area-->
+                        <div class="toiletform-question">
+                            <tr>
+                                <th>¿Afuera del lavabo hay...</th>
+                                <td>Sí</td>
+                                <td>No</td>
+                                <td>No sé</td>
+                            </tr>
+                            <tr>
+                                <th>lavamanos?</th>
+                                <td><input class="is-checkradio" id="sink-yes"
+                                        type="radio" name="sink"
+                                        checked="checked"></td>
+                                <td><input class="is-checkradio" id="sink-no"
+                                        type="radio" name="sink"></td>
+                                <td><input class="is-checkradio" id="sink-idk"
+                                        type="radio" name="sink"></td>
+                            </tr>
+                            <tr>
+                                <th>secador de manos?</th>
+                                <td><input class="is-checkradio"
+                                        id="handdryer-yes" type="radio"
+                                        name="handdryer" checked="checked">
+                                </td>
+                                <td><input class="is-checkradio"
+                                        id="handdryer-no" type="radio"
+                                        name="handdryer"></td>
+                                <td><input class="is-checkradio"
+                                        id="handdryer-idk" type="radio"
+                                        name="handdryer"></td>
+                            </tr>
+                            <tr>
+                                <th>dispensador de jabón?</th>
+                                <td><input class="is-checkradio"
+                                        id="soapdispenser-yes" type="radio"
+                                        name="soapdispenser" checked="checked">
+                                </td>
+                                <td><input class="is-checkradio"
+                                        id="soapdispenser-no" type="radio"
+                                        name="soapdispenser"></td>
+                                <td><input class="is-checkradio"
+                                        id="soapdispenser-idk" type="radio"
+                                        name="soapdispenser"></td>
+                            </tr>
+                            <tr>
+                                <th>cambiador para bebés?</th>
+                                <td><input class="is-checkradio"
+                                        id="babychanger-yes" type="radio"
+                                        name="babychanger" checked="checked">
+                                </td>
+                                <td><input class="is-checkradio"
+                                        id="babychanger-no" type="radio"
+                                        name="babychanger"></td>
+                                <td><input class="is-checkradio"
+                                        id="babychanger-idk" type="radio"
+                                        name="babychanger"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </div>
+
+                        <!--Toilet area-->
+                        <div class="toiletform-question">
+                            <tr>
+                                <th>¿En el área de (al menos un) inodoro
+                                    hay...</th>
+                                <td>Sí</td>
+                                <td>No</td>
+                                <td>No sé</td>
+                            </tr>
+                            <tr>
+                                <th>urinario?</th>
+                                <td><input class="is-checkradio" id="urinal-yes"
+                                        type="radio" name="urinal"
+                                        checked="checked">
+                                </td>
+                                <td><input class="is-checkradio" id="urinal-no"
+                                        type="radio" name="urinal"></td>
+                                <td><input class="is-checkradio" id="urinal-idk"
+                                        type="radio" name="urinal"></td>
+                            </tr>
+                            <tr>
+                                <th>lavamanos?</th>
+                                <td><input class="is-checkradio"
+                                        id="sinkincabin-yes" type="radio"
+                                        name="sinkincabin" checked="checked">
+                                </td>
+                                <td><input class="is-checkradio"
+                                        id="sinkincabin-no" type="radio"
+                                        name="sinkincabin"></td>
+                                <td><input class="is-checkradio"
+                                        id="sinkincabin-idk" type="radio"
+                                        name="sinkincabin"></td>
+                            </tr>
+                            <tr>
+                                <th>papelera?</th>
+                                <td><input class="is-checkradio"
+                                        id="sanitarybin-yes" type="radio"
+                                        name="sanitarybin" checked="checked">
+                                </td>
+                                <td><input class="is-checkradio"
+                                        id="sanitarybin-no" type="radio"
+                                        name="sanitarybin"></td>
+                                <td><input class="is-checkradio"
+                                        id="sanitarybin-idk" type="radio"
+                                        name="sanitarybin"></td>
+                            </tr>
+                            <tr>
+                                <th>cerrojo?</th>
+                                <td><input class="is-checkradio" id="lock-yes"
+                                        type="radio" name="lock"
+                                        checked="checked"></td>
+                                <td><input class="is-checkradio" id="lock-no"
+                                        type="radio" name="lock"></td>
+                                <td><input class="is-checkradio" id="lock-idk"
+                                        type="radio" name="lock"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </div>
+                    </table>
+                </div>
+
+                <!--Opening Hours-->
+                <div class="columns column is-12">
+                    <div class="field column is-8">
+                        <div class="control">
+                            <label class="label">¿Conoces el
+                                horario?</label>
+                            <input id="openhours" type="checkbox"
+                                name="openhours"
+                                class="switch is-rounded is-rtl"
+                                checked="checked">
+                            <label for="openhours">
+                                <span>Sí</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Opening Hours - Detail-->
+                <div id="openhours-detail" class="column is-12">
+                    <table class="table is-fullwidth">
+                        <tr>
+                            <th>
+                                <input id="monday" type="checkbox" name="monday"
+                                    class="switch is-rounded is-rtl"
+                                    checked="checked">
+                                <label for="monday">
+                                    <span>Lunes</span>
+                                </label>
+                            </th>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <button class="button is-outlined is-success">
+                                    <span class="icon is-small">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+
+                            </th>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <button class="button is-outlined is-success">
+                                    <span class="icon is-small">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </span>
+                                </button>
+                                <button class="button is-outlined is-danger">
+                                    <span class="icon is-small">
+                                        <i class="fa-solid fa-x"></i>
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input id="tuesday" type="checkbox"
+                                    name="tuesday"
+                                    class="switch is-rounded is-rtl"
+                                    checked="checked">
+                                <label for="tuesday">
+                                    <span>Martes</span>
+                                </label>
+                            </th>
+                            <td>
+
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <span
+                                    class="tag is-large is-white">Cerrado</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input id="wednesday" type="checkbox"
+                                    name="wednesday"
+                                    class="switch is-rounded is-rtl"
+                                    checked="checked">
+                                <label for="wednesday">
+                                    <span>Miércoles</span>
+                                </label>
+                            </th>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <button class="button is-outlined is-success">
+                                    <span class="icon is-small">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input id="thursday" type="checkbox"
+                                    name="thursday"
+                                    class="switch is-rounded is-rtl"
+                                    checked="checked">
+                                <label for="thursday">
+                                    <span>Jueves</span>
+                                </label>
+                            </th>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <button class="button is-outlined is-success">
+                                    <span class="icon is-small">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input id="friday" type="checkbox" name="friday"
+                                    class="switch is-rounded is-rtl"
+                                    checked="checked">
+                                <label for="friday">
+                                    <span>Viernes</span>
+                                </label>
+                            </th>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <button class="button is-outlined is-success">
+                                    <span class="icon is-small">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input id="saturday" type="checkbox"
+                                    name="saturday"
+                                    class="switch is-rounded is-rtl"
+                                    checked="checked">
+                                <label for="saturday">
+                                    <span>Sábado</span>
+                                </label>
+                            </th>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <button class="button is-outlined is-success">
+                                    <span class="icon is-small">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input id="sunday" type="checkbox" name="sunday"
+                                    class="switch is-rounded is-rtl"
+                                    checked="checked">
+                                <label for="sunday">
+                                    <span>Domingo</span>
+                                </label>
+                            </th>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <input class="input" type="time">
+                            </td>
+                            <td>
+                                <button class="button is-outlined is-success">
+                                    <span class="icon is-small">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--Notes-->
+                <div class="columns column is-12">
+                    <div class="field column is-8">
+                        <label class="label">Notas</label>
+                        <div class="control">
+                            <textarea class="textarea"
+                                placeholder="Escribe cualquier otra información importante sobre el lavabo."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!--Submit-->
+                <div id="end-buttons">
+                    <hr>
+                    <input class="button" type="reset" value="Cancelar">
+                    <input class="button is-primary" type="submit"
+                        value="Enviar">
+                </div>
+            </form>
         </section>
     </div>
 

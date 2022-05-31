@@ -7,6 +7,14 @@ body,
 
 #app {
     min-height: 100%;
+    margin-bottom: 50px;
+}
+.switch[type="checkbox"]:checked + label::before, .switch[type="checkbox"]:checked + label:before {
+    background-color: rgb(165,235,235);
+}
+
+.main-content {
+    margin-top: 30px;
 }
 .navbar {
     background-color: rgb(191, 165, 254);
@@ -15,8 +23,25 @@ body,
     background-color: rgb(165,235,235);
     color: black;
 }
+.button.is-primary:hover, .button.is-primary.is-hovered {
+    background-color: rgb(96,225,225);
+    color: black;
+}
 
-/*Toilet Form*/
 .toiletform-question {
     margin-bottom: 10px;
 }
+
+#openhours-detail {
+    overflow-x: scroll;
+}
+#end-buttons {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1023px) {
+    .main-content {
+      margin: 30px;
+    }
+  }
