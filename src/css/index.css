@@ -100,7 +100,10 @@ body,
     margin-top: 5px;
 }
 .menu-list {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+.hr-no-bot-margin {
+    margin-bottom: 0;
 }
 
 /*Map*/
@@ -132,4 +135,7 @@ span.close i:hover {
 }
 #toilet-open-now {
     margin-top: 15px;
+}
+h4.is-size-6 {
+    margin-bottom: 10px;
 }

@@ -82,7 +82,7 @@
                         <span>Filters</span>
                     </span>
                 </a>
-                <hr>
+                <hr class="hr-no-bot-margin">
 
                 <!--Main Filters-->
                 <ul id="main-filters" class="menu-list">
@@ -115,6 +115,75 @@
                 </ul>
 
                 <ul class="menu-list">
+                    <!--Users-->
+                    <li>
+                        <a id="adv-filters" class="menu-label is-size-6">
+                            <span class="icon-text">
+                                <span>Filtros por usuario</span>
+                            </span>
+                        </a>
+                    </li>
+                    <ul>
+                        <li class="filter-subcategory">
+                            <a><input id="filter-familyfriendly"
+                                    type="checkbox"
+                                    name="filter-familyfriendly"
+                                    class="switch is-rounded filter"
+                                    checked="checked">
+                                <label for="filter-familyfriendly">
+                                    <span>Para familias</span>
+                                    <!--span class="icon">
+                                        <i class="fa-solid fa-info"></i>
+                                      </span-->
+                                </label></a>
+                            <ul>
+                                <li class="has-text-grey-light">Incluye:
+                                </li>
+                                <li>Cambiador para bebés</li>
+                                <li>A nivel del suelo</li>
+                                <li>Secador de manos</li>
+                                <li>Papelera</li>
+                            </ul>
+                        </li>
+                        <li class="filter-subcategory">
+                            <a><input id="filter-menstruatingfriendly"
+                                    type="checkbox"
+                                    name="filter-menstruatingfriendly"
+                                    class="switch is-rounded filter"
+                                    checked="checked">
+                                <label for="filter-menstruatingfriendly">
+                                    <span>Para personas menstruantes</span>
+                                </label></a>
+                            <ul>
+                                <li class="has-text-grey-light">Incluye:
+                                </li>
+                                <li>Basurero</li>
+                                <li>Lavamanos en área del lavabo</li>
+                            </ul>
+                        </li>
+                        <li class="filter-subcategory">
+                            <a><input id="filter-handicapfriendly"
+                                    type="checkbox"
+                                    name="filter-handicapfriendly"
+                                    class="switch is-rounded filter"
+                                    checked="checked">
+                                <label for="filter-handicapfriendly">
+                                    <span>Para adultos mayores y personas
+                                        con
+                                        movilidad reducida</span>
+                                </label></a>
+                            <ul>
+                                <li class="has-text-grey-light">Incluye:
+                                </li>
+                                <li>Accesible para personas con movilidad
+                                    reducida</li>
+                                <li>Barras de apoyo</li>
+                                <li>A nivel del suelo</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!--Advanced-->
                     <li>
                         <a id="adv-filters" class="menu-label is-size-6">
                             <span class="icon-text">
@@ -327,65 +396,6 @@
                             </ul>
                         </li>
                     </ul>
-
-                    <!--Users-->
-                    <ul>
-                        <li class="filter-subcategory">
-                            <a><input id="filter-familyfriendly"
-                                    type="checkbox"
-                                    name="filter-familyfriendly"
-                                    class="switch is-rounded filter"
-                                    checked="checked">
-                                <label for="filter-familyfriendly">
-                                    <span>Para familias</span>
-                                </label></a>
-                            <ul>
-                                <li class="has-text-grey-light">Incluye:
-                                </li>
-                                <li>Cambiador para bebés</li>
-                                <li>A nivel del suelo</li>
-                                <li>Secador de manos</li>
-                                <li>Papelera</li>
-                            </ul>
-                        </li>
-                        <li class="filter-subcategory">
-                            <a><input id="filter-menstruatingfriendly"
-                                    type="checkbox"
-                                    name="filter-menstruatingfriendly"
-                                    class="switch is-rounded filter"
-                                    checked="checked">
-                                <label for="filter-menstruatingfriendly">
-                                    <span>Para personas menstruantes</span>
-                                </label></a>
-                            <ul>
-                                <li class="has-text-grey-light">Incluye:
-                                </li>
-                                <li>Basurero</li>
-                                <li>Lavamanos en área del lavabo</li>
-                            </ul>
-                        </li>
-                        <li class="filter-subcategory">
-                            <a><input id="filter-handicapfriendly"
-                                    type="checkbox"
-                                    name="filter-handicapfriendly"
-                                    class="switch is-rounded filter"
-                                    checked="checked">
-                                <label for="filter-handicapfriendly">
-                                    <span>Para adultos mayores y personas
-                                        con
-                                        movilidad reducida</span>
-                                </label></a>
-                            <ul>
-                                <li class="has-text-grey-light">Incluye:
-                                </li>
-                                <li>Accesible para personas con movilidad
-                                    reducida</li>
-                                <li>Barras de apoyo</li>
-                                <li>A nivel del suelo</li>
-                            </ul>
-                        </li>
-                    </ul>
-
                 </ul>
             </aside>
         </div>
@@ -397,7 +407,7 @@
                     <span class="close icon has-text-grey">
                         <i class="fa-solid fa-x"></i>
                     </span>
-                    <h2 id="toilet-name" class="is-size-3">Toilet Name</h2>
+                    <h2 id="toilet-name" class="is-size-4">Toilet Name</h2>
                     <p id="location-type">Place Type (Public, Library...)</p>
                     <p id="toilet-type">Toilet type (Lavabo en la calle/Lavabo en edificio
                         público)</p>
@@ -606,7 +616,7 @@
                                 Sábado
                             </td>
                             <td class="times" data-time="sat">
-                                24 Hours
+                                24 Horas
                             </td>
                         </tr>
                         <tr>
@@ -614,7 +624,7 @@
                                 Domingo
                             </td>
                             <td class="times" data-time="sun">
-                                Closed
+                                Cerrado
                             </td>
                         </tr>
                     </table>
@@ -626,6 +636,7 @@
                     <h3 id="notes" class="is-size-5">Notas</h3>
                     <p id="notes-content">Ground and floor 2. Baby-change on ground floor only.
                     </p>
+                    <br>
                 </div>
 
                 <div>
@@ -636,7 +647,7 @@
                         <button class="button is-danger is-outlined">No,
                             quiero modificar información</button>
                     </div>
-                    <p>Última actualización: 25/05/2022, 2:25</p>
+                    <!--p>Última actualización: 25/05/2022, 2:25</p-->
                 </div>
 
             </aside>
