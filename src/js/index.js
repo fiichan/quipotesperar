@@ -45,6 +45,7 @@ function generate_markers(data) {
             ...di,
             visible: false,
             index: i,
+            open_now: (di.times) ? currently_open(deconstruct_time_str(di.times)) : false,
             marker: generate_map_marker(di.lat, di.lon, i)
         });
     }

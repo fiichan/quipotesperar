@@ -53,11 +53,14 @@ body,
 
 #filters-panel {
     left: 10px;
+    width: calc(100% - 20px);
+    max-width: 400px;
 }
 
 #information-panel {
     right: 10px;
-    width: 450px;
+    width: calc(100% - 20px);
+    max-width: 450px;
 }
 
 .menu-list li ul {
