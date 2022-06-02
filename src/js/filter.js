@@ -6,9 +6,14 @@ const menstruating = document.getElementById('filter-menstruatingfriendly');
 const family = document.getElementById('filter-familyfriendly');
 
 // set default filters here.
-const filters = {};
+const filters = {
+    price: 0,
+    open_now: true
+};
 
-// filter_toilets(markers, filters);
+setTimeout(() => {
+    filter_toilets(markers, filters);    
+}, 500);
 
 free.addEventListener("click", (e) => {
     if(e.currentTarget.checked) {

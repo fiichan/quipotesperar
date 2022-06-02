@@ -46,12 +46,33 @@ const times = process_time_elements(document.getElementsByClassName('times'));
 const notes = document.getElementById('notes');
 const notes_content = document.getElementById('notes-content');
 
+const at_ground_lvl =  document.getElementById('at_ground_lvl_tag');
+const has_handdryer =  document.getElementById('has_handdryer_tag');
+const has_soap_dispenser =  document.getElementById('has_soap_dispenser_tag');
+const has_sink =  document.getElementById('has_sink_tag');
+const has_urinal = document.getElementById('has_urinal_tag');
+const has_sink_in_cabin = document.getElementById('has_sink_in_cabin_tag');
+const has_baby = document.getElementById('has_baby_changer_tag');
+const has_lock = document.getElementById('has_lock_tag');
+
 function update_ui(data) {
+    console.log(data);
+    
     toilet_name.innerHTML = data.name;
+    
     generate_google_maps_url(data.address);
     set_hours(data.times);
+
     open_now.classList.toggle('is-hidden', !data.open_now);
     out_of_order.classList.toggle('is-hidden', !!!+data.out_of_order);
+    at_ground_lvl.classList.toggle('is-hidden', !!!+data.is_accessible);
+    has_handdryer.classList.toggle('is-hidden', !!!+data.has_hand_dryer);
+    has_soap_dispenser.classList.toggle('is-hidden', !!!+data.has_soap_dispenser);
+    has_sink.classList.toggle('is-hidden', !!!+data.has_sink);
+    has_urinal.classList.toggle('is-hidden', !!!+data.has_urinal);
+    has_sink_in_cabin.classList.toggle('is-hidden', !!!+data.has_sink_in_cabin);
+    has_baby.classList.toggle('is-hidden', !!!+data.has_baby_changer);
+    has_lock.classList.toggle('is-hidden', !!!+data.has_lock);
     
     if(data.notes) set_notes(data.notes.trim());
 
