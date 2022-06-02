@@ -45,6 +45,10 @@ const times = process_time_elements(document.getElementsByClassName('times'));
 const notes = document.getElementById('notes');
 const notes_content = document.getElementById('notes-content');
 
+const price_free = document.getElementById('price_free_tag');
+const price_x = document.getElementById('price_x_tag');
+const wheelchair = document.getElementById('wheelchair_tag');
+
 const at_ground_lvl =  document.getElementById('at_ground_lvl_tag');
 const has_handdryer =  document.getElementById('has_handdryer_tag');
 const has_soap_dispenser =  document.getElementById('has_soap_dispenser_tag');
@@ -64,6 +68,7 @@ function update_ui(data) {
     generate_google_maps_url(data.address);
     set_hours(data.times);
     set_gender(!!+data.gender);
+    set_price(data.price);
 
     open_now.classList.toggle('is-hidden', !data.open_now);
     out_of_order.classList.toggle('is-hidden', !!!+data.out_of_order);
@@ -75,6 +80,9 @@ function update_ui(data) {
     has_sink_in_cabin.classList.toggle('is-hidden', !!!+data.has_sink_in_cabin);
     has_baby.classList.toggle('is-hidden', !!!+data.has_baby_changer);
     has_lock.classList.toggle('is-hidden', !!!+data.has_lock);
+
+    const reduced_mobility_ok = (!!+data.has_standup_aid && !!+data.has_handicapped_toilet && !!+data.is_accessible) ? true : false;
+    wheelchair.classList.toggle('is-hidden', !reduced_mobility_ok);
     
     if(data.notes) set_notes(data.notes.trim());
 
@@ -84,9 +92,14 @@ function update_ui(data) {
 }
 
 function set_gender(gender) {
-    console.log(gender);
     male_female.classList.toggle('is-hidden', !gender);
     unisex.classList.toggle('is-hidden', gender);
+}
+
+function set_price(amount) {
+    const free = amount === 0 ? true : false;
+    price_free.classList.toggle('is-hidden', !free);
+    price_x.classList.toggle('is-hidden', free);
 }
 
 function process_time_elements(els) {
