@@ -13,7 +13,6 @@ gsap.set(filter_panel, {width: 150, height: 80});
 
 filter_toggle.addEventListener("click", () => {
 
-    console.log(filter_panel_open);
     if(filter_panel_open) {
         new TimelineMax()
             .to(filter_panel, 0.5, {width:  150, height: 80})
@@ -54,6 +53,8 @@ const has_urinal = document.getElementById('has_urinal_tag');
 const has_sink_in_cabin = document.getElementById('has_sink_in_cabin_tag');
 const has_baby = document.getElementById('has_baby_changer_tag');
 const has_lock = document.getElementById('has_lock_tag');
+const male_female = document.getElementById('female_male_tag');
+const unisex = document.getElementById('unisex_tag');
 
 function update_ui(data) {
     console.log(data);
@@ -62,6 +63,7 @@ function update_ui(data) {
     
     generate_google_maps_url(data.address);
     set_hours(data.times);
+    set_gender(!!+data.gender);
 
     open_now.classList.toggle('is-hidden', !data.open_now);
     out_of_order.classList.toggle('is-hidden', !!!+data.out_of_order);
@@ -79,6 +81,12 @@ function update_ui(data) {
     new TimelineMax()
         .to(info_panel, 0.5, {width: 'calc(100% - 20px)', height: 'auto', padding: 20})
         .set(info_panel, {overflowY: 'scroll', overflowX: 'hidden'});
+}
+
+function set_gender(gender) {
+    console.log(gender);
+    male_female.classList.toggle('is-hidden', !gender);
+    unisex.classList.toggle('is-hidden', gender);
 }
 
 function process_time_elements(els) {
