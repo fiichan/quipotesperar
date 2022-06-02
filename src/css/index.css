@@ -70,9 +70,8 @@ body,
 #adv-filters {
     padding-left: 0;
 }
-.toilet-tags .tag {
-    margin-bottom: 10px;
-}
+
+
 
 .filter-subcategory a {
     margin-bottom: 0 !important;
@@ -126,6 +125,7 @@ body,
 #toilet-sidebar div {
     margin-bottom: 20px;
 }
+
 span.close {
     float: right;
 }
@@ -133,9 +133,25 @@ span.close i:hover {
     color:hsl(348, 100%, 61%);	
     cursor: pointer;
 }
+
+h4.is-size-6 {
+    margin-bottom: 10px;
+}
+
+#toilet-name {
+    margin-bottom: 10px;
+}
+#location-type, #toilet-type, #google_maps_url {
+    margin-bottom: 5px;
+}
+
 #toilet-open-now {
     margin-top: 15px;
 }
-h4.is-size-6 {
-    margin-bottom: 10px;
+
+.toilet-tags {
+    margin-bottom: 15px;
+}
+.toilet-tags .tag {
+    margin: 0 5px 10px 0;
 }
