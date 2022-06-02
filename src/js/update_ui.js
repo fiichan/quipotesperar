@@ -37,8 +37,8 @@ close_info.addEventListener("click", () => {
 const toilet_name = document.getElementById("toilet-name");
 const address = document.getElementById('address');
 const address_url = document.getElementById('google_maps_url');
-const location_type = document.getElementById('location-type')
-const toilet_type = document.getElementById('toilet-type')
+const category = document.getElementById('category')
+const sub_category = document.getElementById('sub-category')
 const open_now = document.getElementById('toilet-open-now');
 const out_of_order = document.getElementById('toilet-out-of-order');
 const times = process_time_elements(document.getElementsByClassName('times'));
@@ -61,8 +61,6 @@ const male_female = document.getElementById('female_male_tag');
 const unisex = document.getElementById('unisex_tag');
 
 function update_ui(data) {
-    console.log(data);
-    
     toilet_name.innerHTML = data.name;
     
     generate_google_maps_url(data.address);
@@ -85,6 +83,8 @@ function update_ui(data) {
     wheelchair.classList.toggle('is-hidden', !reduced_mobility_ok);
     
     if(data.notes) set_notes(data.notes.trim());
+    if(data.category) category.innerHTML = data.category;
+    if(data.sub_category) sub_category.innerHTML = data.sub_category;
 
     new TimelineMax()
         .to(info_panel, 0.5, {width: 'calc(100% - 20px)', height: 'auto', padding: 20})

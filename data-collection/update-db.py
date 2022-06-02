@@ -10,16 +10,17 @@ cnx = mysql.connect(
 )
 cursor = cnx.cursor()
 
-stmt = "UPDATE toilets SET name = %s, times = %s, price = %s, gender = %s, is_accessible = %s, is_cabin_toilet = %s, has_baby_changer = %s, has_hand_dryer = %s, has_sanitary_bin = %s, has_standup_aid = %s, has_handicapped_toilet = %s, has_sink = %s, has_sink_in_cabin = %s, has_soap_dispenser = %s, has_lock = %s, has_urinal = %s, out_of_order = %s, category = %s, notes = %s WHERE address = %s"
+stmt = "UPDATE toilets SET category = %s, sub_category = %s WHERE address = %s"
 
-source = pd.read_csv('raw-data/test.csv', sep=";", quotechar='"', lineterminator='\n')
+source = pd.read_csv('raw-data/categories.csv', sep=",", quotechar='"', lineterminator='\n')
+print(source)
 for i, row in source.iterrows():
     data = row.to_list()
-    del data[2]
+    # print(data)
     data.append(data[0])
     del data[0]
     data = tuple(data)
-    print(i)
+    print(data)
     cursor.execute(stmt, data)
 
 cnx.commit()
