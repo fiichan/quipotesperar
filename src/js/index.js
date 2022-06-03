@@ -1,12 +1,26 @@
-const toilet_icon = L.icon({
-    iconUrl: 'leaf-green.png',
-    shadowUrl: 'leaf-shadow.png',
+const icon_general = {
+    shadowUrl: 'data/icons/shadow.png',
 
-    iconSize: [38, 95], // size of the icon
-    shadowSize: [50, 64], // size of the shadow
-    iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
+    iconSize: [19, 48], // size of the icon
+    shadowSize: [25, 32], // size of the shadow
+    iconAnchor: [9.5, 46.2], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 28],  // the same for the shadow
     popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+}
+
+const public_building_marker = L.icon({
+    iconUrl: 'data/icons/red.png',
+    ...icon_general
+});
+
+const public_toilet = L.icon({
+    iconUrl: 'data/icons/purple.png',
+    ...icon_general
+});
+
+const cabin_toilet = L.icon({
+    iconUrl: 'data/icons/yellow.png',
+    ...icon_general
 });
 
 const map = L.map('map', {
@@ -38,23 +52,42 @@ function on_marker_click(e) {
 }
 
 function generate_markers(data) {
+
     const toilets = [];
     for (let i = 0; i < data.length; i++) {
         const di = data[i];
+
+        let icon;
+        switch (di.category) {
+            case 'Public Building':
+                icon = public_building_marker;
+                break;
+            case 'Public Bathroom':
+                icon = public_toilet;
+                break;
+            case 'Cabin toilet':
+                icon = cabin_toilet;
+                break;
+            default: 
+                icon = public_building_marker;
+                break;
+        }
+
         toilets.push({
             ...di,
             visible: false,
             index: i,
             open_now: (di.times) ? currently_open(deconstruct_time_str(di.times)) : false,
-            marker: generate_map_marker(di.lat, di.lon, i)
+            marker: generate_map_marker(di.lat, di.lon, icon, i)
         });
     }
     return toilets;
 }
 
-function generate_map_marker(lat, lon, index) {
+function generate_map_marker(lat, lon, icon, index) {
     const m = L.marker([lat, lon], {
-        index: index
+        index: index,
+        icon: icon
     }).on("click", on_marker_click);
 
     return m;

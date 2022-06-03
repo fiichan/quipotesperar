@@ -61,6 +61,9 @@ const male_female = document.getElementById('female_male_tag');
 const unisex = document.getElementById('unisex_tag');
 
 function update_ui(data) {
+
+    console.log(data.category, data.sub_category);
+
     toilet_name.innerHTML = data.name;
     
     generate_google_maps_url(data.address);
